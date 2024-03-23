@@ -11,6 +11,7 @@ import com.hhr.backend.exception.BadRequestException;
 import com.hhr.backend.exception.InternalServerException;
 import com.hhr.backend.exception.ResourceAlreadyExistsException;
 import com.hhr.backend.service.category.CategoryService;
+import com.hhr.backend.service.feature.FeatureService;
 import com.hhr.backend.service.product.ProductService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,10 +1,9 @@
-package com.hhr.backend.service.implementation;
+package com.hhr.backend.service.product;
 
 import com.hhr.backend.entity.Product;
 import com.hhr.backend.exception.ResourceAlreadyExistsException;
 import com.hhr.backend.exception.ResourceNotFoundException;
 import com.hhr.backend.repository.ProductRepository;
-import com.hhr.backend.service.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -39,8 +38,6 @@ public class ProductServiceImpl implements ProductService {
         if (!existingProduct.getName().equals(entity.getName()) && productRepository.existsByName(entity.getName())) {
             throw new ResourceAlreadyExistsException("Product with name " + entity.getName() + " already exists.");
         }
-        // Update existingProduct fields with entity fields
-        // For example: existingProduct.setName(entity.getName());
         return productRepository.save(existingProduct);
     }
 
