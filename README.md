@@ -1,2 +1,4 @@
-KiteRental
-Proyecto Integrador DH
+# KiteRental
+## Proyecto Integrador DH
+### Christian Fernández
+### chr.edg.fer@hotmail.com
