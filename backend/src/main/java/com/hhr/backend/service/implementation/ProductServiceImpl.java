@@ -78,4 +78,9 @@ public class ProductServiceImpl implements ProductService {
     public Optional<Product> findByName(String name) {
         return productRepository.findByName(name);
     }
+
+    @Override
+    public boolean existsByName(String name) {
+        return productRepository.existsByName(name);
+    }
 }
