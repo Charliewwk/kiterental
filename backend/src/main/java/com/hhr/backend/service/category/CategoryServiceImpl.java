@@ -27,12 +27,11 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category update(Long id, Category entity) throws ResourceNotFoundException, ResourceAlreadyExistsException {
-        // Implementa la actualización si es necesario
+        return entity;
     }
 
     @Override
     public void delete(Long id) throws ResourceNotFoundException {
-        // Implementa la eliminación si es necesario
     }
 
     @Override
@@ -42,7 +41,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Page<Category> findRandom(Pageable pageable) {
-        // Implementa la búsqueda aleatoria si es necesario
+        return null;
     }
 
     @Override
@@ -60,5 +59,4 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryRepository.existsByName(name);
     }
 
-    // Otros métodos que puedas necesitar para el servicio de categoría
 }
