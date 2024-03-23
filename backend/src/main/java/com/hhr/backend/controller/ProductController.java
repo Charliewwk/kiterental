@@ -7,6 +7,10 @@ import com.hhr.backend.entity.Image;
 
 import com.hhr.backend.dto.product.ProductRequestDTO;
 import com.hhr.backend.dto.product.ProductResponseDTO;
+import com.hhr.backend.exception.BadRequestException;
+import com.hhr.backend.exception.InternalServerException;
+import com.hhr.backend.exception.ResourceAlreadyExistsException;
+import com.hhr.backend.service.category.CategoryService;
 import com.hhr.backend.service.product.ProductService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +23,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashSet;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
@@ -27,6 +34,10 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private CategoryService categoryService;
+    @Autowired
+    private FeatureService featureService;
     @Autowired
     private ModelMapper modelMapper;
 
@@ -47,7 +58,6 @@ public class ProductController {
         }
 
         Page<Product> productPage = random ? productService.findRandom(pageable) : productService.findAll(pageable);
-
         Page<ProductResponseDTO> responsePage = productPage.map(product -> {
             ProductResponseDTO responseDTO = modelMapper.map(product, ProductResponseDTO.class);
             responseDTO.setCategoryNames(product.getCategories().stream().map(Category::getName).collect(Collectors.toSet()));
@@ -90,14 +100,71 @@ public class ProductController {
 
     @PostMapping("/create")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<ProductResponseDTO> createProduct(@RequestBody ProductRequestDTO requestDTO) {
-        Product product = modelMapper.map(requestDTO, Product.class);
+    public ResponseEntity<Object> createProduct(@RequestBody ProductRequestDTO requestDTO) {
         try {
+            if (productService.existsByName(requestDTO.getName())) {
+                throw new ResourceAlreadyExistsException("Product " + requestDTO.getName() + " already exists.");
+            }
+
+            Product product = modelMapper.map(requestDTO, Product.class);
+
+/*
+            Set<Category> categories = new HashSet<>();
+            for (String categoryName : requestDTO.getCategories()) {
+                Category category = categoryService.findByName(categoryName);
+                if (category == null) {
+                    category = new Category();
+                    category.setName(categoryName);
+                    categoryService.create(category);
+                }
+                categories.add(category);
+            }
+            product.setCategories(categories);
+*/
+
+/*
+            Set<Feature> features = new HashSet<>();
+            for (String featureName : requestDTO.getFeatures()) {
+                Feature feature = featureService.findByName(featureName);
+                if (feature == null) {
+                    feature = new Feature();
+                    feature.setName(featureName);
+                    featureService.create(feature);
+                }
+                features.add(feature);
+            }
+            product.setFeatures(features);
+*/
+
+/*
+            Set<Image> images = new HashSet<>();
+            for (String imageUrl : requestDTO.getImages()) {
+                Image image = imageService.findByUrl(imageUrl);
+                if (image == null) {
+                    image = new Image();
+                    image.setUrl(imageUrl);
+                    imageService.create(image);
+                }
+                images.add(image);
+            }
+            product.setImages(images);
+*/
+
+            Set<Product> relatedProducts = new HashSet<>();
+            for (Long relatedProductId : requestDTO.getRelated()) {
+                Optional<Product> relatedProduct = productService.findById(relatedProductId);
+                relatedProduct.ifPresent(relatedProducts::add);
+            }
+            product.setRelatedProducts(relatedProducts);
+
             Product createdProduct = productService.create(product);
+
             ProductResponseDTO responseDTO = modelMapper.map(createdProduct, ProductResponseDTO.class);
             return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
+        } catch (ResourceAlreadyExistsException e) {
+            throw new ResourceAlreadyExistsException("Product " + requestDTO.getName() + " already exists.");
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            throw new InternalServerException("Error creating the product.", e);
         }
     }
 

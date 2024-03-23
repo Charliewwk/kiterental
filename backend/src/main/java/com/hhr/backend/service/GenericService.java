@@ -15,5 +15,6 @@ public interface GenericService<T, ID> {
     Page<T> findRandom(Pageable pageable);
     Optional<T> findById(ID id);
     Optional<T> findByName(String name);
+    boolean existsByName(String name);
 
 }

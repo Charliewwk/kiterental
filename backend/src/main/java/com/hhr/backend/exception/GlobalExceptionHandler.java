@@ -31,6 +31,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(InternalServerException.class)
+    public ResponseEntity<Object> handleInternalServerException(InternalServerException ex, WebRequest request) {
+        ErrorDetails errorDetails = new ErrorDetails(new Date(), "Internal Server Exception", ex.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleGlobalException(Exception ex, WebRequest request) {
         ErrorDetails errorDetails = new ErrorDetails(new Date(), "Internal Server Error", ex.getMessage(), request.getDescription(false));
