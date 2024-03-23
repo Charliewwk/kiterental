@@ -1,0 +1,50 @@
+{
+  "english": "Inglês",
+  "spanish": "Espanhol",
+  "portuguese": "Português",
+  "poweredBy": "Desenvolvido por",
+  "home": "Início",
+  "contact": "Contato",
+  "favorites": "Favoritos",
+  "about": "Sobre Nós",
+  "theme": "Tema",
+  "darkTheme": "Tema Escuro",
+  "lightTheme": "Tema Claro",
+  "userDetails": {
+    "username": "Nome de Usuário",
+    "email": "eMail",
+    "titlePersonalProfesional": "Informações Pessoais e Profissionais",
+    "street": "Rua",
+    "suite": "Apartamento",
+    "city": "Cidade",
+    "zip": "Código Postal",
+    "phone": "Telefone",
+    "website": "Site",
+    "company": "Empresa",
+    "navBack": "Voltar",
+    "navHome": "Início",
+    "navForw": "Avançar"
+  },
+  "contactPage": {
+    "verifyMessage": "Por favor, verifique suas informações novamente.",
+    "successMessage": "Obrigado ${formData.fullName}, entraremos em contato em breve por e-mail.",
+    "fullname": "Nome completo",
+    "fullnameHelp": "Digite mais de 5 caracteres, sem espaços no início ou mais de um espaço entre palavras.",
+    "email": "eMail",
+    "emailHelp": "Digite um e-mail válido",
+    "sendButton": "Enviar",
+    "sending": "Enviando..."
+  },
+  "aboutPage": {
+    "title": "Nós",
+    "subtitle": "Nós Nós Nós Nós....",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."
+  },
+  "notFound": {
+    "title": "Aviso",
+    "text": "O usuário com ID ${id} não existe.",
+    "button": "Voltar"
+  },
+  "loading": "Carregando... (Simulando carregamento da API)",
+  "nofavs": "Você não tem favoritos em sua lista"
+}

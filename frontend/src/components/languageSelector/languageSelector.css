@@ -1,0 +1,24 @@
+.icon-flags {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+  }
+
+  .custom-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+
+  }
+  
+  .dropdown-menu {
+    left: 0 !important;
+  }
+
+  .custom-dropdown-menu {
+    position: absolute;
+    right: 0;
+    transform-origin: top left;
+  }
+  

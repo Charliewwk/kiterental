@@ -1,0 +1,19 @@
+.left-bar {
+  width: 100%;
+}
+
+.left-bar-content {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 767px) {
+  .left-bar {
+    order: -1;
+  }
+  .left-bar-content {
+    justify-content:space-around;
+    align-items: center;
+    flex-direction: row;
+  }
+}

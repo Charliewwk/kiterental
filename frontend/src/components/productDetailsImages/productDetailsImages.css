@@ -1,0 +1,12 @@
+@media (max-width: 767px) {
+  .secondary_images.mobile {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .secondary_images.mobile .img-thumbnail {
+    width: calc(100% - 1px);
+    margin: 1px;
+  }
+}

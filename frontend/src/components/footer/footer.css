@@ -1,0 +1,31 @@
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.footer-brand img {
+  filter: invert(100%);
+  margin-right: 5px;
+}
+
+.navbar-brand span {
+  font-size: 12px;
+}
+
+.footer-dashboard {
+  display: flex;
+  align-items: center;
+}
+
+.footer-dashboard img {
+  filter: invert(100%);
+  margin-right: 5px;
+  align-items: center;
+
+}
+
+.footer-dashboard span {
+  font-size: 12px;
+  align-items: center;
+
+}

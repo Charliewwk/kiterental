@@ -1,0 +1,12 @@
+.navbar-brand img {
+  filter: invert(100%);
+}
+
+.button-transparent {
+    background-color: transparent !important;
+    border: none !important;
+}
+  
+.button-transparent:hover {
+    background-color: transparent !important;
+}

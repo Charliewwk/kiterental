@@ -1,0 +1,54 @@
+.card-text{
+  font-size: 0.75rem;
+}
+
+.emailDecoration{
+  text-decoration: none;
+}
+
+.heart {
+  width: 100px;
+  height: 100px;
+  background: url("/src/assets/heart.png") no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  transition: background-position 1s steps(28);
+  transition-duration: 0s;
+  
+  &.is-active {
+    transition-duration: 1s;
+    background-position: -2800px 0;
+  }
+}
+
+.stage{
+  margin-top: -25px;
+  margin-left: -25px;
+}
+
+.fullNameStyle{
+  margin-top: 10px;
+  margin-right: 12px;
+
+}
+
+.fullName{
+  font-size: 0.9rem;
+
+}
+
+.text-shadow-dark {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+}
+
+.text-shadow-light {
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 1);
+}
+
+.low-brightness {
+  filter: brightness(0.6);
+}
+
+.high-brightness {
+  filter: brightness(0.8);
+}

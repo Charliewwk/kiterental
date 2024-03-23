@@ -1,0 +1,20 @@
+.heart {
+    width: 100px;
+    height: 100px;
+    background: url("/public/assets/svg/fav/heart.png") no-repeat;
+    background-position: -2800px 0;
+    cursor: pointer;
+    transition: background-position 1s steps(28);
+    transition-duration: 0s;
+
+    &.is-active {
+        transition-duration: 0.7s;
+        background-position: -2800px 0;
+    }
+
+    &.no-active {
+        transition-duration: 0.4s;
+        background-position: 0 0;
+    }
+
+}

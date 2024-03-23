@@ -1,0 +1,55 @@
+[2024-03-12 17:28:27] [ INFO ] [UserService:56] signUp method: Getting started.
+[2024-03-12 17:28:27] [ INFO ] [UserService:59] signUp method: martin@msn.com is already registered.
+[2024-03-17 17:44:59] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-17 17:46:35] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-17 17:46:44] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-17 17:46:45] [ INFO ] [UserService:66] signUp method: USER role was assigned by default.
+[2024-03-17 18:05:52] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-17 18:05:52] [ INFO ] [UserService:66] signUp method: USER role was assigned by default.
+[2024-03-17 18:06:23] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-17 18:06:42] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-17 18:07:03] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-17 18:07:07] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-17 18:07:07] [ INFO ] [UserService:48] sendWelcomeEmail method: Sending to christian@gmail.com
+[2024-03-17 18:07:13] [ INFO ] [UserService:50] sendWelcomeEmail method: Successfully sent.
+[2024-03-17 18:07:13] [ INFO ] [UserService:81] signUp method: Finishing.
+[2024-03-17 20:03:16] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-17 20:03:16] [ INFO ] [UserService:48] sendWelcomeEmail method: Sending to tomas@gmail.com
+[2024-03-17 20:03:22] [ INFO ] [UserService:50] sendWelcomeEmail method: Successfully sent.
+[2024-03-17 20:03:22] [ INFO ] [UserService:81] signUp method: Finishing.
+[2024-03-17 20:05:51] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-17 20:05:51] [ INFO ] [UserService:57] signUp method: tomas@gmail.com is already registered.
+[2024-03-17 20:17:12] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-17 20:17:12] [ INFO ] [UserService:57] signUp method: tomas@gmail.com is already registered.
+[2024-03-17 20:17:22] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-17 20:17:23] [ INFO ] [UserService:48] sendWelcomeEmail method: Sending to sandra@gmail.com
+[2024-03-17 20:17:27] [ INFO ] [UserService:50] sendWelcomeEmail method: Successfully sent.
+[2024-03-17 20:17:27] [ INFO ] [UserService:81] signUp method: Finishing.
+[2024-03-17 20:17:50] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-17 20:17:50] [ INFO ] [UserService:57] signUp method: sandra@gmail.com is already registered.
+[2024-03-17 20:37:07] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-17 20:37:07] [ INFO ] [UserService:57] signUp method: sandra@gmail.com is already registered.
+[2024-03-17 20:37:21] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-17 20:37:21] [ INFO ] [UserService:48] sendWelcomeEmail method: Sending to martin@gmail.com
+[2024-03-17 20:37:25] [ INFO ] [UserService:50] sendWelcomeEmail method: Successfully sent.
+[2024-03-17 20:37:25] [ INFO ] [UserService:81] signUp method: Finishing.
+[2024-03-18 12:10:07] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-18 12:10:07] [ INFO ] [UserService:48] sendWelcomeEmail method: Sending to chr.edg.fer@gmail.com
+[2024-03-18 12:10:12] [ INFO ] [UserService:50] sendWelcomeEmail method: Successfully sent.
+[2024-03-18 12:10:12] [ INFO ] [UserService:81] signUp method: Finishing.
+[2024-03-18 12:17:46] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-18 12:17:47] [ INFO ] [UserService:57] signUp method: chr.edg.fer@gmail.com is already registered.
+[2024-03-18 12:18:05] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-18 12:18:06] [ INFO ] [UserService:48] sendWelcomeEmail method: Sending to carlos@gmail.com
+[2024-03-18 12:18:10] [ INFO ] [UserService:50] sendWelcomeEmail method: Successfully sent.
+[2024-03-18 12:18:10] [ INFO ] [UserService:81] signUp method: Finishing.
+[2024-03-18 12:19:42] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-18 12:19:42] [ INFO ] [UserService:57] signUp method: carlos@gmail.com is already registered.
+[2024-03-18 12:20:08] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-18 12:20:08] [ INFO ] [UserService:57] signUp method: carlos@gmail.com is already registered.
+[2024-03-18 12:20:16] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-18 12:20:17] [ INFO ] [UserService:48] sendWelcomeEmail method: Sending to charlie@gmail.com
+[2024-03-18 12:20:21] [ INFO ] [UserService:50] sendWelcomeEmail method: Successfully sent.
+[2024-03-18 12:20:21] [ INFO ] [UserService:81] signUp method: Finishing.
+[2024-03-22 10:44:51] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-22 10:44:51] [ INFO ] [UserService:49] sendWelcomeEmail method: Sending to oscar@gmail.com
