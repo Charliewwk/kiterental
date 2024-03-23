@@ -12,6 +12,7 @@ public interface GenericService<T, ID> {
     T update(ID id, T entity) throws ResourceNotFoundException, ResourceAlreadyExistsException;
     void delete(ID id) throws ResourceNotFoundException;
     Page<T> findAll(Pageable pageable);
+    Page<T> findRandom(Pageable pageable);
     Optional<T> findById(ID id);
     Optional<T> findByName(String name);
 

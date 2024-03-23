@@ -7,9 +7,12 @@ import com.hhr.backend.repository.ProductRepository;
 import com.hhr.backend.service.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -51,7 +54,20 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Page<Product> findAll(Pageable pageable) {
-        return productRepository.findAll(pageable);    }
+        return productRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Product> findRandom(Pageable pageable) {
+        List<Product> allProducts = productRepository.findAll();
+        Collections.shuffle(allProducts);
+        int pageSize = pageable.getPageSize();
+        int pageNumber = pageable.getPageNumber();
+        int start = pageSize * pageNumber;
+        int end = Math.min(start + pageSize, allProducts.size());
+        List<Product> randomProducts = allProducts.subList(start, end);
+        return new PageImpl<>(randomProducts, pageable, allProducts.size());
+    }
 
     @Override
     public Optional<Product> findById(Long id) {

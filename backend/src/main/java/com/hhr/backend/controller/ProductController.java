@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -30,18 +31,30 @@ public class ProductController {
     private ModelMapper modelMapper;
 
     @GetMapping
-    public ResponseEntity<Page<ProductResponseDTO>> getAllProducts(
+    public ResponseEntity<Page<ProductResponseDTO>> getProducts(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) String sortBy,
+            @RequestParam(required = false, defaultValue = "asc") String sortOrder,
+            @RequestParam(required = false) boolean random
     ) {
-        Pageable pageable = PageRequest.of(page, size);
-        Page<Product> productPage = productService.findAll(pageable);
+        Pageable pageable;
+        if (sortBy != null) {
+            Sort.Direction direction = sortOrder.equalsIgnoreCase("desc") ? Sort.Direction.DESC : Sort.Direction.ASC;
+            pageable = PageRequest.of(page, size, Sort.by(direction, sortBy));
+        } else {
+            pageable = PageRequest.of(page, size);
+        }
+
+        Page<Product> productPage = random ? productService.findRandom(pageable) : productService.findAll(pageable);
 
         Page<ProductResponseDTO> responsePage = productPage.map(product -> {
             ProductResponseDTO responseDTO = modelMapper.map(product, ProductResponseDTO.class);
             responseDTO.setCategoryNames(product.getCategories().stream().map(Category::getName).collect(Collectors.toSet()));
             responseDTO.setFeatureNames(product.getFeatures().stream().map(Feature::getName).collect(Collectors.toSet()));
             responseDTO.setImageUrls(product.getImages().stream().map(Image::getUrl).collect(Collectors.toSet()));
+            responseDTO.setRelatedProductIds(product.getRelatedProducts().stream().map(Product::getId).collect(Collectors.toSet()));
+            responseDTO.setActive(product.getActive());
             return responseDTO;
         });
 
