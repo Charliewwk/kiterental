@@ -53,3 +53,29 @@
 [2024-03-18 12:20:21] [ INFO ] [UserService:81] signUp method: Finishing.
 [2024-03-22 10:44:51] [ INFO ] [UserService:54] signUp method: Getting started.
 [2024-03-22 10:44:51] [ INFO ] [UserService:49] sendWelcomeEmail method: Sending to oscar@gmail.com
+[2024-03-25 14:19:57] [ INFO ] [GenericService:68] findAll method: Executed.
+[2024-03-25 14:21:28] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 14:21:28] [ INFO ] [GenericService:27] createCategory method: Getting started.
+[2024-03-25 14:21:28] [ INFO ] [GenericService:32] createCategory method: Successful category registration
+[2024-03-25 14:21:50] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 14:21:50] [ INFO ] [GenericService:27] createCategory method: Getting started.
+[2024-03-25 14:21:50] [ INFO ] [GenericService:32] createCategory method: Successful category registration
+[2024-03-25 14:21:52] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 14:22:23] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 14:22:23] [ INFO ] [GenericService:27] createCategory method: Getting started.
+[2024-03-25 14:22:23] [ INFO ] [GenericService:32] createCategory method: Successful category registration
+[2024-03-25 14:22:43] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 14:22:43] [ INFO ] [GenericService:27] createCategory method: Getting started.
+[2024-03-25 14:22:43] [ INFO ] [GenericService:32] createCategory method: Successful category registration
+[2024-03-25 14:23:10] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 14:23:10] [ INFO ] [GenericService:27] createCategory method: Getting started.
+[2024-03-25 14:23:10] [ INFO ] [GenericService:32] createCategory method: Successful category registration
+[2024-03-25 14:23:39] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 14:23:39] [ INFO ] [GenericService:27] createCategory method: Getting started.
+[2024-03-25 14:23:39] [ INFO ] [GenericService:32] createCategory method: Successful category registration
+[2024-03-25 14:23:48] [ INFO ] [GenericService:68] findAll method: Executed.
+[2024-03-25 14:23:54] [ INFO ] [GenericService:68] findAll method: Executed.
+[2024-03-25 14:23:56] [ INFO ] [GenericService:68] findAll method: Executed.
+[2024-03-25 14:24:03] [ INFO ] [GenericService:68] findAll method: Executed.
+[2024-03-25 14:24:58] [ INFO ] [GenericService:68] findAll method: Executed.
+[2024-03-25 14:25:31] [ INFO ] [GenericService:68] findAll method: Executed.
