@@ -2,17 +2,10 @@ package com.hhr.backend.controller;
 
 import com.hhr.backend.dto.category.CategoryRequestDTO;
 import com.hhr.backend.dto.category.CategoryResponseDTO;
-import com.hhr.backend.dto.product.ProductRequestDTO;
-import com.hhr.backend.dto.product.ProductResponseDTO;
 import com.hhr.backend.entity.Category;
-import com.hhr.backend.entity.Feature;
-import com.hhr.backend.entity.Image;
-import com.hhr.backend.entity.Product;
 import com.hhr.backend.exception.InternalServerException;
 import com.hhr.backend.exception.ResourceAlreadyExistsException;
 import com.hhr.backend.service.category.CategoryService;
-import com.hhr.backend.service.user.UserService;
-import org.apache.log4j.Logger;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,7 +18,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/categories")

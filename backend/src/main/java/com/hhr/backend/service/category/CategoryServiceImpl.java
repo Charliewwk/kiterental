@@ -65,13 +65,13 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Page<Category> findAll(Pageable pageable) {
-        logger.info("findAll method: Executed.");
+        logger.info("findAllCategory method: Executed.");
         return categoryRepository.findAll(pageable);
     }
 
     @Override
     public Page<Category> findRandom(Pageable pageable) {
-        logger.info("findRandom method: Getting started.");
+        logger.info("findRandomCategory method: Getting started.");
         List<Category> allCategories = categoryRepository.findAll();
         Collections.shuffle(allCategories);
         int pageSize = pageable.getPageSize();
@@ -79,25 +79,25 @@ public class CategoryServiceImpl implements CategoryService {
         int start = pageSize * pageNumber;
         int end = Math.min(start + pageSize, allCategories.size());
         List<Category> randomCategories = allCategories.subList(start, end);
-        logger.info("findRandom method: Getting Finalized.");
+        logger.info("findRandomCategory method: Getting Finalized.");
         return new PageImpl<>(randomCategories, pageable, allCategories.size());
     }
 
     @Override
     public Optional<Category> findById(Long id) {
-        logger.info("findById method: Executed.");
+        logger.info("findByIdCategory method: Executed.");
         return categoryRepository.findById(id);
     }
 
     @Override
     public Optional<Category> findByName(String name) {
-        logger.info("findByName method: Executed.");
+        logger.info("findByNameCategory method: Executed.");
         return categoryRepository.findByName(name);
     }
 
     @Override
     public boolean existsByName(String name) {
-        logger.info("existsByName method: Executed.");
+        logger.info("existsByNameCategory method: Executed.");
         return categoryRepository.existsByName(name);
     }
 
