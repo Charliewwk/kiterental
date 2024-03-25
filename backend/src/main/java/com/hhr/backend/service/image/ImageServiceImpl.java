@@ -1,6 +1,5 @@
 package com.hhr.backend.service.image;
 
-import com.hhr.backend.entity.Feature;
 import com.hhr.backend.entity.Image;
 import com.hhr.backend.exception.ResourceAlreadyExistsException;
 import com.hhr.backend.exception.ResourceNotFoundException;
@@ -23,7 +22,7 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     public Image create(Image entity) throws ResourceAlreadyExistsException {
-        String name = entity.getUrl();
+        String name = entity.getName();
         if (imageRepository.existsByName(name)) {
             throw new ResourceAlreadyExistsException("Image with url " + name + " already exists.");
         }
@@ -37,8 +36,8 @@ public class ImageServiceImpl implements ImageService {
             throw new ResourceNotFoundException("Image with ID " + id + " not found.");
         }
         Image existingImage = existingImageOptional.get();
-        String newName = entity.getUrl();
-        if (!existingImage.getUrl().equals(newName) && imageRepository.existsByName(newName)) {
+        String newName = entity.getName();
+        if (!existingImage.getName().equals(newName) && imageRepository.existsByName(newName)) {
             throw new ResourceAlreadyExistsException("Image with url " + newName + " already exists.");
         }
         return imageRepository.save(existingImage);
