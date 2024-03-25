@@ -22,7 +22,6 @@ import java.util.stream.Collectors;
 public class UserService {
 
     private static final Logger logger = Logger.getLogger(UserService.class);
-
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
     private final PasswordEncoder passwordEncoder;

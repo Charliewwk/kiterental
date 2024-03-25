@@ -11,6 +11,8 @@ import com.hhr.backend.entity.Product;
 import com.hhr.backend.exception.InternalServerException;
 import com.hhr.backend.exception.ResourceAlreadyExistsException;
 import com.hhr.backend.service.category.CategoryService;
+import com.hhr.backend.service.user.UserService;
+import org.apache.log4j.Logger;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,6 +24,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.stream.Collectors;
 
 @RestController
@@ -87,6 +90,9 @@ public class CategoryController {
                 throw new ResourceAlreadyExistsException("Category " + requestDTO.getName() + " already exists.");
             }
             Category category = modelMapper.map(requestDTO, Category.class);
+            category.setCreatedDate(LocalDateTime.now());
+            category.setUpdatedDate(LocalDateTime.now());
+            category.setActive(true);
             Category createCategory = categoryService.create(category);
             CategoryResponseDTO responseDTO = modelMapper.map(createCategory, CategoryResponseDTO.class);
             return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
