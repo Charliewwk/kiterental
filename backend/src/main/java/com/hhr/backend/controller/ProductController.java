@@ -7,7 +7,6 @@ import com.hhr.backend.entity.Image;
 
 import com.hhr.backend.dto.product.ProductRequestDTO;
 import com.hhr.backend.dto.product.ProductResponseDTO;
-import com.hhr.backend.exception.BadRequestException;
 import com.hhr.backend.exception.InternalServerException;
 import com.hhr.backend.exception.ResourceAlreadyExistsException;
 import com.hhr.backend.service.category.CategoryService;
@@ -63,7 +62,7 @@ public class ProductController {
             ProductResponseDTO responseDTO = modelMapper.map(product, ProductResponseDTO.class);
             responseDTO.setCategoryNames(product.getCategories().stream().map(Category::getName).collect(Collectors.toSet()));
             responseDTO.setFeatureNames(product.getFeatures().stream().map(Feature::getName).collect(Collectors.toSet()));
-            responseDTO.setImageUrls(product.getImages().stream().map(Image::getUrl).collect(Collectors.toSet()));
+            responseDTO.setImageUrls(product.getImages().stream().map(Image::getName).collect(Collectors.toSet()));
             responseDTO.setRelatedProductIds(product.getRelatedProducts().stream().map(Product::getId).collect(Collectors.toSet()));
             responseDTO.setActive(product.getActive());
             return responseDTO;
@@ -79,7 +78,7 @@ public class ProductController {
                     ProductResponseDTO responseDTO = modelMapper.map(product, ProductResponseDTO.class);
                     responseDTO.setCategoryNames(product.getCategories().stream().map(Category::getName).collect(Collectors.toSet()));
                     responseDTO.setFeatureNames(product.getFeatures().stream().map(Feature::getName).collect(Collectors.toSet()));
-                    responseDTO.setImageUrls(product.getImages().stream().map(Image::getUrl).collect(Collectors.toSet()));
+                    responseDTO.setImageUrls(product.getImages().stream().map(Image::getName).collect(Collectors.toSet()));
                     return ResponseEntity.ok(responseDTO);
                 })
                 .orElse(ResponseEntity.notFound().build());
@@ -92,7 +91,7 @@ public class ProductController {
                     ProductResponseDTO responseDTO = modelMapper.map(product, ProductResponseDTO.class);
                     responseDTO.setCategoryNames(product.getCategories().stream().map(Category::getName).collect(Collectors.toSet()));
                     responseDTO.setFeatureNames(product.getFeatures().stream().map(Feature::getName).collect(Collectors.toSet()));
-                    responseDTO.setImageUrls(product.getImages().stream().map(Image::getUrl).collect(Collectors.toSet()));
+                    responseDTO.setImageUrls(product.getImages().stream().map(Image::getName).collect(Collectors.toSet()));
                     return responseDTO;
                 })
                 .map(ResponseEntity::ok)

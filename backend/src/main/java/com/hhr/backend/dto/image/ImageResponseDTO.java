@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class ImageResponseDTO {
     private Long id;
-    private String url;
+    private String name;
 }
