@@ -135,3 +135,28 @@
 [2024-03-25 15:18:38] [ INFO ] [GenericService:84] findRandomFeature method: Getting Finalized.
 [2024-03-25 15:18:53] [ INFO ] [GenericService:76] findRandomFeature method: Getting started.
 [2024-03-25 15:18:53] [ INFO ] [GenericService:84] findRandomFeature method: Getting Finalized.
+[2024-03-25 15:26:38] [ INFO ] [GenericService:68] findAll method: Executed.
+[2024-03-25 15:27:47] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 15:28:10] [ INFO ] [GenericService:70] findAllFeature method: Executed.
+[2024-03-25 15:28:30] [ INFO ] [GenericService:94] findByName method: Executed.
+[2024-03-25 15:28:35] [ INFO ] [GenericService:94] findByName method: Executed.
+[2024-03-25 15:28:41] [ INFO ] [GenericService:94] findByName method: Executed.
+[2024-03-25 15:28:46] [ INFO ] [GenericService:68] findAll method: Executed.
+[2024-03-25 15:28:51] [ INFO ] [GenericService:68] findAll method: Executed.
+[2024-03-25 15:29:02] [ INFO ] [GenericService:68] findAll method: Executed.
+[2024-03-25 15:29:06] [ INFO ] [GenericService:68] findAll method: Executed.
+[2024-03-25 15:29:29] [ INFO ] [GenericService:68] findAll method: Executed.
+[2024-03-25 15:29:43] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 15:30:01] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 15:30:11] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 20:38:34] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 20:38:56] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 20:38:59] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 20:39:08] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 20:39:37] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 20:40:02] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 20:40:07] [ INFO ] [GenericService:100] existsByName method: Executed.
+[2024-03-25 20:40:28] [ INFO ] [GenericService:68] findAll method: Executed.
+[2024-03-25 20:40:37] [ INFO ] [GenericService:68] findAll method: Executed.
+[2024-03-25 20:40:42] [ INFO ] [GenericService:68] findAll method: Executed.
+[2024-03-25 20:40:58] [ INFO ] [GenericService:68] findAll method: Executed.
