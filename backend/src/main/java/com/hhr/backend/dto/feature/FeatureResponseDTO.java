@@ -7,5 +7,6 @@ public class FeatureResponseDTO {
 
     private Long id;
     private String name;
+    private Boolean active;
 
 }

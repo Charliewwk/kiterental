@@ -41,9 +41,17 @@ public class SecurityConfig {
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                     .authorizeHttpRequests(request -> request
-                            .requestMatchers("/auth/signin", "/auth/signup", "/users", "/products", "/product/search", "/categories", "/categories/search").permitAll()
+                            .requestMatchers("/auth/signin", "/auth/signup",
+                                    "/users", "/products", "/product/search",
+                                    "/categories", "/categories/search",
+                                    "/features" , "/features/search",
+                                    "/images", "/images/search").permitAll()
                             .requestMatchers("/auth/refresh").hasAnyAuthority("ADMIN","USER")
-                            .requestMatchers("/users/create", "/users/update/", "/products/create", "/products/update","/products/delete", "/categories/create" , "/categories/update", "/categories/delete").hasAuthority("ADMIN")
+                            .requestMatchers("/users/create", "/users/update/",
+                                    "/products/create", "/products/update", "/products/delete",
+                                    "/categories/create" , "/categories/update", "/categories/delete" ,
+                                    "/features/create" , "/features/update" , "/features/delete",
+                                    "/images/create", "/images/update", "/images/delete").hasAuthority("ADMIN")
                             .anyRequest().authenticated())
                 .sessionManagement(manager->manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())
