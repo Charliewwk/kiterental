@@ -16,13 +16,17 @@ import java.util.Set;
 @Entity
 @Table(name = "categories")
 public class Category {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(unique=true)
     private String name;
+
     @ManyToMany
     private Set<Product> products;
+
     private Boolean active;
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
@@ -32,4 +36,5 @@ public class Category {
     @ManyToOne
     @JoinColumn(name = "updated_by")
     private User updatedBy;
+
 }

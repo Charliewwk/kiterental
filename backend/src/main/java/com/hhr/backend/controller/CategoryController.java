@@ -46,9 +46,7 @@ public class CategoryController {
         }
 
         Page<Category> categoryPage = random ? categoryService.findRandom(pageable) : categoryService.findAll(pageable);
-        Page<CategoryResponseDTO> responsePage = categoryPage.map(category -> {
-            return modelMapper.map(category, CategoryResponseDTO.class);
-        });
+        Page<CategoryResponseDTO> responsePage = categoryPage.map(category -> modelMapper.map(category, CategoryResponseDTO.class));
 
         return ResponseEntity.ok(responsePage);
     }
@@ -66,10 +64,7 @@ public class CategoryController {
     @GetMapping("/search")
     public ResponseEntity<CategoryResponseDTO> getCategoryByName(@RequestParam String name) {
         return categoryService.findByName(name)
-                .map(category -> {
-                    CategoryResponseDTO responseDTO = modelMapper.map(category, CategoryResponseDTO.class);
-                    return responseDTO;
-                })
+                .map(category -> modelMapper.map(category, CategoryResponseDTO.class))
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -83,7 +78,6 @@ public class CategoryController {
             }
             Category category = modelMapper.map(requestDTO, Category.class);
             category.setCreatedDate(LocalDateTime.now());
-            category.setUpdatedDate(LocalDateTime.now());
             category.setActive(true);
             Category createCategory = categoryService.create(category);
             CategoryResponseDTO responseDTO = modelMapper.map(createCategory, CategoryResponseDTO.class);

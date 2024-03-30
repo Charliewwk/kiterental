@@ -1,5 +1,6 @@
 package com.hhr.backend.config;
 
+import com.hhr.backend.exception.AccessDeniedException;
 import com.hhr.backend.service.security.UserDetailsService;
 import com.hhr.backend.service.security.JWTUtils;
 import jakarta.servlet.FilterChain;
@@ -36,7 +37,11 @@ public class JWTAuthFilter extends OncePerRequestFilter {
             return;
         }
         jwtToken = authHeader.substring(7);
-        username = jwtUtils.extractUsername(jwtToken);
+        try {
+            username = jwtUtils.extractUsername(jwtToken);
+        } catch (Exception e) {
+            throw new AccessDeniedException("Extract username function: " + e.getMessage(), e);
+        }
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null){
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);
             if (jwtUtils.isTokenValid(jwtToken, userDetails)){

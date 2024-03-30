@@ -25,6 +25,7 @@ import java.util.List;
 @DynamicInsert
 @Table(name = "users")
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,10 +33,11 @@ public class User implements UserDetails {
     private String username;
     private String password;
     private String role;
-    private Boolean active;
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private Contact contact;
+
+    private Boolean active;
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
     @ManyToOne
@@ -44,12 +46,6 @@ public class User implements UserDetails {
     @ManyToOne
     @JoinColumn(name = "updated_by")
     private User updatedBy;
-
-    public void setCreatedDate(LocalDateTime now) {
-    }
-
-    public void setUpdatedDate(LocalDateTime now) {
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/features")
-public class FeaatureController {
+public class FeatureController {
 
     @Autowired
     private FeatureService featureService;
@@ -45,9 +45,7 @@ public class FeaatureController {
         }
 
         Page<Feature> featurePage = random ? featureService.findRandom(pageable) : featureService.findAll(pageable);
-        Page<FeatureResponseDTO> responsePage = featurePage.map(feature -> {
-            return modelMapper.map(feature, FeatureResponseDTO.class);
-        });
+        Page<FeatureResponseDTO> responsePage = featurePage.map(feature -> modelMapper.map(feature, FeatureResponseDTO.class));
 
         return ResponseEntity.ok(responsePage);
     }
@@ -65,9 +63,7 @@ public class FeaatureController {
     @GetMapping("/search")
     public ResponseEntity<FeatureResponseDTO> getFeatureByName(@RequestParam String name) {
         return featureService.findByName(name)
-                .map(category -> {
-                    return modelMapper.map(category, FeatureResponseDTO.class);
-                })
+                .map(category -> modelMapper.map(category, FeatureResponseDTO.class))
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -81,7 +77,6 @@ public class FeaatureController {
             }
             Feature feature = modelMapper.map(requestDTO, Feature.class);
             feature.setCreatedDate(LocalDateTime.now());
-            feature.setUpdatedDate(LocalDateTime.now());
             feature.setActive(true);
             Feature createFeature = featureService.create(feature);
             FeatureResponseDTO responseDTO = modelMapper.map(createFeature, FeatureResponseDTO.class);

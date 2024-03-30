@@ -1,5 +1,6 @@
 package com.hhr.backend.service.security;
 
+import com.hhr.backend.exception.AccessDeniedException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -43,12 +44,20 @@ public class JWTUtils {
                 .compact();
     }
 
-    public String extractUsername(String token){
-        return extractClaims(token, Claims::getSubject);
+    public String extractUsername(String token) {
+        try {
+            return extractClaims(token, Claims::getSubject);
+        } catch (Exception e) {
+            throw new AccessDeniedException("Error extracting username", e);
+        }
     }
 
-    private <T> T extractClaims(String token, Function<Claims, T> claimsTFunction){
-        return claimsTFunction.apply(Jwts.parser().verifyWith(Key).build().parseSignedClaims(token).getPayload());
+    private <T> T extractClaims(String token, Function<Claims, T> claimsTFunction) {
+        try {
+            return claimsTFunction.apply(Jwts.parser().verifyWith(Key).build().parseSignedClaims(token).getPayload());
+        } catch (Exception e) {
+            throw new AccessDeniedException("error extracting claims", e);
+        }
     }
 
     public boolean isTokenValid(String token, UserDetails userDetails){

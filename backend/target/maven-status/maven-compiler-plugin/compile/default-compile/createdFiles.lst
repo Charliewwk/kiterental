@@ -4,7 +4,9 @@ com/hhr/backend/dto/user/ContactRequestDTO$ContactRequestDTOBuilder.class
 com/hhr/backend/service/image/ImageServiceImpl.class
 com/hhr/backend/repository/ProductRepository.class
 com/hhr/backend/repository/ContactRepository.class
+com/hhr/backend/config/UserUtils.class
 com/hhr/backend/dto/user/UserRequestDTO.class
+com/hhr/backend/controller/FeatureController.class
 com/hhr/backend/entity/Image.class
 com/hhr/backend/service/category/CategoryService.class
 com/hhr/backend/dto/user/ContactResponseDTO.class
@@ -29,10 +31,12 @@ com/hhr/backend/dto/user/ContactRequestDTO.class
 com/hhr/backend/dto/image/ImageResponseDTO.class
 com/hhr/backend/dto/product/ProductRequestDTO.class
 com/hhr/backend/repository/FeatureRepository.class
+com/hhr/backend/dto/related/RelatedRequestDTO.class
 com/hhr/backend/service/feature/FeatureService.class
 com/hhr/backend/service/security/AuthService.class
 com/hhr/backend/entity/Image$ImageBuilder.class
 com/hhr/backend/dto/user/ContactResponseDTO$ContactResponseDTOBuilder.class
+com/hhr/backend/controller/ImageController.class
 com/hhr/backend/dto/feature/FeatureRequestDTO.class
 com/hhr/backend/dto/user/AuthRequestDTO.class
 com/hhr/backend/repository/CategoryRepository.class
@@ -44,6 +48,7 @@ com/hhr/backend/service/EmailService.class
 com/hhr/backend/exception/ResourceNotFoundException.class
 com/hhr/backend/config/JWTAuthFilter.class
 com/hhr/backend/dto/product/ProductResponseDTO.class
+com/hhr/backend/dto/related/RelatedResponseDTO.class
 com/hhr/backend/entity/Contact$ContactBuilder.class
 com/hhr/backend/dto/user/UserResponseDTO$UserResponseDTOBuilder.class
 com/hhr/backend/exception/GlobalExceptionHandler.class
@@ -59,6 +64,7 @@ com/hhr/backend/dto/category/CategoryResponseDTO.class
 com/hhr/backend/exception/ResourceAlreadyExistsException.class
 com/hhr/backend/dto/user/UserResponseDTO.class
 com/hhr/backend/controller/ProductController.class
+com/hhr/backend/controller/CategoryController.class
 com/hhr/backend/dto/feature/FeatureResponseDTO.class
 com/hhr/backend/service/category/CategoryServiceImpl.class
 com/hhr/backend/entity/Product.class

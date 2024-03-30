@@ -43,7 +43,6 @@ public class UserService {
         }
         User user = modelMapper.map(userRequestDTO, User.class);
         user.setCreatedDate(LocalDateTime.now());
-        user.setUpdatedDate(LocalDateTime.now());
         user.setPassword(passwordEncoder.encode(userRequestDTO.getPassword()));
         if (userRequestDTO.getRole() != null) {
             user.setRole(userRequestDTO.getRole().toUpperCase());
@@ -109,6 +108,12 @@ public class UserService {
     public UserResponseDTO getUserByEmail(String email) {
         Optional<User> userOptional = userRepository.findByUsername(email);
         return userOptional.map(user -> modelMapper.map(user, UserResponseDTO.class)).orElse(null);
+    }
+
+    @Transactional(readOnly = true)
+    public User findByUsername(String username) {
+        Optional<User> userOptional = userRepository.findByUsername(username);
+        return userOptional.orElse(null);
     }
 
 }

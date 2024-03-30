@@ -1,6 +1,5 @@
 package com.hhr.backend.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Data
 @Builder
@@ -16,15 +16,16 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "images")
 public class Image {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(unique=true)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    @JsonBackReference
-    private Product product;
+    @ManyToMany
+    private Set<Product> products;
 
     private Boolean active;
     private LocalDateTime createdDate;
@@ -35,4 +36,5 @@ public class Image {
     @ManyToOne
     @JoinColumn(name = "updated_by")
     private User updatedBy;
+
 }

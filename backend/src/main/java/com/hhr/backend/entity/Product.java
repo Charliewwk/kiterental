@@ -1,6 +1,5 @@
 package com.hhr.backend.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.OnDelete;
@@ -16,6 +15,7 @@ import java.util.Set;
 @Entity
 @Table(name="products")
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,6 +23,15 @@ public class Product {
     private String name;
     private String description;
     private Double price;
+
+    @ManyToMany
+    @JoinTable(
+            name = "product_category",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Set<Category> categories;
 
     @ManyToMany
     @JoinTable(
@@ -35,15 +44,11 @@ public class Product {
 
     @ManyToMany
     @JoinTable(
-            name = "product_category",
+            name = "product_image",
             joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id")
+            inverseJoinColumns = @JoinColumn(name = "image_id")
     )
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Set<Category> categories;
-
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
     private Set<Image> images;
 
     @ManyToMany
@@ -53,10 +58,7 @@ public class Product {
             inverseJoinColumns = @JoinColumn(name = "related_product_id")
     )
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Set<Product> relatedProducts;
-
-    @ManyToMany(mappedBy = "relatedProducts")
-    private Set<Product> relatedToProducts;
+    private Set<Product> related;
 
     private Boolean active;
     private LocalDateTime createdDate;

@@ -2,7 +2,6 @@ package com.hhr.backend.dto.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.hhr.backend.entity.User;
 import lombok.Data;
 
 @Data

@@ -39,7 +39,7 @@ public class EmailService {
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
             message.setSubject("¡Bienvenido a hitHat Rental!");
 
-            String htmlBody = loadHtmlFromResource("/static/welcome_email_template.html");
+            String htmlBody = loadHtmlFromResource();
 
             htmlBody = htmlBody.replace("{{recipient_name}}", recipientName);
             htmlBody = htmlBody.replace("{{activation_link}}", activationLink);
@@ -55,12 +55,12 @@ public class EmailService {
         }
     }
 
-    private String loadHtmlFromResource(String resourceName) {
+    private String loadHtmlFromResource() {
         try {
-            Resource resource = new ClassPathResource(resourceName);
+            Resource resource = new ClassPathResource("/static/welcome_email_template.html");
             return new String(resource.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
         } catch (IOException e) {
-            throw new RuntimeException("Error loading HTML resource: " + resourceName, e);
+            throw new RuntimeException("Error loading HTML resource: " + "/static/welcome_email_template.html", e);
         }
     }
 }

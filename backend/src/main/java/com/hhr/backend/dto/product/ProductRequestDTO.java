@@ -1,18 +1,23 @@
 package com.hhr.backend.dto.product;
 
+import com.hhr.backend.dto.category.CategoryRequestDTO;
+import com.hhr.backend.dto.feature.FeatureRequestDTO;
+import com.hhr.backend.dto.image.ImageRequestDTO;
+import com.hhr.backend.dto.related.RelatedRequestDTO;
+
 import lombok.Data;
 import java.util.List;
 
 @Data
 public class ProductRequestDTO {
 
-    private Long id;
     private String name;
-    private Double price;
     private String description;
-    private List<String> categories;
-    private List<String> features;
-    private List<String> images;
-    private List<Long> related;
+    private Double price;
+    private List<CategoryRequestDTO> categories;
+    private List<FeatureRequestDTO> features;
+    private List<ImageRequestDTO> images;
+    private List<RelatedRequestDTO> related;
+    private Boolean active;
 
 }

@@ -5,8 +5,6 @@ import lombok.Data;
 @Data
 public class FeatureRequestDTO {
 
-    private Long id;
     private String name;
-    private Boolean active;
 
 }
