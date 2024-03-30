@@ -16,6 +16,7 @@ import java.util.Set;
 @Entity
 @Table(name = "features")
 public class Feature {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,18 +24,17 @@ public class Feature {
     @Column(unique=true)
     private String name;
 
-    @ManyToMany(mappedBy = "features")
+    @ManyToMany
     private Set<Product> products;
 
     private Boolean active;
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
-
     @ManyToOne
     @JoinColumn(name = "created_by")
     private User createdBy;
-
     @ManyToOne
     @JoinColumn(name = "updated_by")
     private User updatedBy;
+
 }

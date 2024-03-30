@@ -28,7 +28,7 @@ public class ImageController {
     private ModelMapper modelMapper;
 
     @GetMapping
-    public ResponseEntity<Page<ImageResponseDTO>> getImgages(
+    public ResponseEntity<Page<ImageResponseDTO>> getImages(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
             @RequestParam(required = false) String sortBy,
@@ -44,9 +44,7 @@ public class ImageController {
         }
 
         Page<Image> imagePage = random ? imageService.findRandom(pageable) : imageService.findAll(pageable);
-        Page<ImageResponseDTO> responsePage = imagePage.map(image -> {
-            return modelMapper.map(image, ImageResponseDTO.class);
-        });
+        Page<ImageResponseDTO> responsePage = imagePage.map(image -> modelMapper.map(image, ImageResponseDTO.class));
 
         return ResponseEntity.ok(responsePage);
     }
@@ -64,9 +62,7 @@ public class ImageController {
     @GetMapping("/search")
     public ResponseEntity<ImageResponseDTO> getImageByName(@RequestParam String name) {
         return imageService.findByName(name)
-                .map(image -> {
-                    return modelMapper.map(image, ImageResponseDTO.class);
-                })
+                .map(image -> modelMapper.map(image, ImageResponseDTO.class))
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -80,7 +76,6 @@ public class ImageController {
             }
             Image image = modelMapper.map(requestDTO, Image.class);
             image.setCreatedDate(LocalDateTime.now());
-            image.setUpdatedDate(LocalDateTime.now());
             image.setActive(true);
             Image createImage = imageService.create(image);
             ImageResponseDTO responseDTO = modelMapper.map(createImage, ImageResponseDTO.class);

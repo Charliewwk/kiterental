@@ -1,23 +1,23 @@
 package com.hhr.backend.dto.product;
 
 import com.hhr.backend.dto.category.CategoryResponseDTO;
-import com.hhr.backend.dto.feature.FeatureResponseDTO;
-import com.hhr.backend.dto.image.ImageResponseDTO;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.Set;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 public class ProductResponseDTO {
+
     private Long id;
     private String name;
     private String description;
     private Double price;
-    private Set<String> categoryNames;
-    private Set<String> featureNames;
-    private Set<String> ImageUrls;
-    private Set<Long> relatedProductIds;
+    private List<CategoryResponseDTO> categories;
     private Boolean active;
+    private LocalDateTime createdDate;
+    private LocalDateTime updatedDate;
+    private Long createdByUserId;
+    private Long updatedByUserId;
 
 }

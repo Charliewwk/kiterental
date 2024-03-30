@@ -18,9 +18,11 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicInsert
 @Table(name = "contacts")
 public class Contact {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String firstname;
     private String lastname;
     private String address;

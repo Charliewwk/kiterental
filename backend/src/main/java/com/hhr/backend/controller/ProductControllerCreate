@@ -1,0 +1,36 @@
+/*
+            Set<Feature> features = new HashSet<>();
+            for (String featureName : requestDTO.getFeatures()) {
+                Feature feature = featureService.findByName(featureName);
+                if (feature == null) {
+                    feature = new Feature();
+                    feature.setName(featureName);
+                    featureService.create(feature);
+                }
+                features.add(feature);
+            }
+            product.setFeatures(features);
+*/
+
+/*
+            Set<Image> images = new HashSet<>();
+            for (String imageUrl : requestDTO.getImages()) {
+                Image image = imageService.findByUrl(imageUrl);
+                if (image == null) {
+                    image = new Image();
+                    image.setUrl(imageUrl);
+                    imageService.create(image);
+                }
+                images.add(image);
+            }
+            product.setImages(images);
+*/
+
+/*
+            Set<Product> relatedProducts = new HashSet<>();
+            for (Long relatedProductId : requestDTO.getRelated()) {
+                Optional<Product> relatedProduct = productService.findById(relatedProductId);
+                relatedProduct.ifPresent(relatedProducts::add);
+            }
+            product.setRelatedProducts(relatedProducts);
+*/
