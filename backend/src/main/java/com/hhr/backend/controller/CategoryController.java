@@ -77,8 +77,6 @@ public class CategoryController {
                 throw new ResourceAlreadyExistsException("Category " + requestDTO.getName() + " already exists.");
             }
             Category category = modelMapper.map(requestDTO, Category.class);
-            category.setCreatedDate(LocalDateTime.now());
-            category.setActive(true);
             Category createCategory = categoryService.create(category);
             CategoryResponseDTO responseDTO = modelMapper.map(createCategory, CategoryResponseDTO.class);
             return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);

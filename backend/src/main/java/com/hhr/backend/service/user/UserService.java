@@ -42,7 +42,6 @@ public class UserService {
                 throw new ResourceAlreadyExistsException(userRequestDTO.getUsername() + " is already registered.");
         }
         User user = modelMapper.map(userRequestDTO, User.class);
-        user.setCreatedDate(LocalDateTime.now());
         user.setPassword(passwordEncoder.encode(userRequestDTO.getPassword()));
         if (userRequestDTO.getRole() != null) {
             user.setRole(userRequestDTO.getRole().toUpperCase());
@@ -81,7 +80,6 @@ public class UserService {
             if (!passwordEncoder.matches(userRequestDTO.getPassword(), existingUser.getPassword())) {
                 existingUser.setPassword(passwordEncoder.encode(userRequestDTO.getPassword()));
             }
-            existingUser.setUpdatedDate(LocalDateTime.now());
             User updatedUser = userRepository.save(existingUser);
             logger.info("updateUser method: Finishing.");
             return modelMapper.map(updatedUser, UserResponseDTO.class);

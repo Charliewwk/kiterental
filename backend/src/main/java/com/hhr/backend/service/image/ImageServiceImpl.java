@@ -21,7 +21,6 @@ public class ImageServiceImpl implements ImageService {
     @Autowired
     private ImageRepository imageRepository;
 
-    @Transactional
     @Override
     public Image create(Image entity) throws ResourceAlreadyExistsException {
         logger.info("createImage method: Getting started.");
@@ -34,7 +33,6 @@ public class ImageServiceImpl implements ImageService {
         return imageRepository.save(entity);
     }
 
-    @Transactional
     @Override
     public Image update(Long id, Image entity) throws ResourceNotFoundException, ResourceAlreadyExistsException {
         logger.info("updateImage method: Getting started.");
@@ -53,7 +51,6 @@ public class ImageServiceImpl implements ImageService {
         return imageRepository.save(existingImage);
     }
 
-    @Transactional
     @Override
     public void delete(Long id) throws ResourceNotFoundException {
         logger.info("deleteImage method: Getting started.");

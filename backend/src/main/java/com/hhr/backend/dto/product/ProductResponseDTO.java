@@ -1,10 +1,11 @@
 package com.hhr.backend.dto.product;
 
 import com.hhr.backend.dto.category.CategoryResponseDTO;
+import com.hhr.backend.dto.feature.FeatureResponseDTO;
+import com.hhr.backend.dto.image.ImageResponseDTO;
+import com.hhr.backend.dto.related.RelatedResponseDTO;
 import lombok.Data;
-
-import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 
 @Data
 public class ProductResponseDTO {
@@ -13,11 +14,10 @@ public class ProductResponseDTO {
     private String name;
     private String description;
     private Double price;
-    private List<CategoryResponseDTO> categories;
+    private Set<CategoryResponseDTO> categories;
+    private Set<FeatureResponseDTO> features;
+    private Set<ImageResponseDTO> images;
+    private Set<RelatedResponseDTO> related;
     private Boolean active;
-    private LocalDateTime createdDate;
-    private LocalDateTime updatedDate;
-    private Long createdByUserId;
-    private Long updatedByUserId;
 
 }

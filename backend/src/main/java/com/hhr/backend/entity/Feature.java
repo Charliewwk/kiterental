@@ -24,17 +24,9 @@ public class Feature {
     @Column(unique=true)
     private String name;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "features")
     private Set<Product> products;
 
     private Boolean active;
-    private LocalDateTime createdDate;
-    private LocalDateTime updatedDate;
-    @ManyToOne
-    @JoinColumn(name = "created_by")
-    private User createdBy;
-    @ManyToOne
-    @JoinColumn(name = "updated_by")
-    private User updatedBy;
 
 }

@@ -1,15 +1,12 @@
 package com.hhr.backend.controller;
 
-import com.hhr.backend.config.UserUtils;
-import com.hhr.backend.dto.image.ImageResponseDTO;
+import com.hhr.backend.dto.category.CategoryResponseDTO;
+import com.hhr.backend.dto.feature.FeatureResponseDTO;
 import com.hhr.backend.entity.Product;
 
 import com.hhr.backend.dto.product.ProductRequestDTO;
 import com.hhr.backend.dto.product.ProductResponseDTO;
 import com.hhr.backend.exception.ResourceAlreadyExistsException;
-import com.hhr.backend.service.category.CategoryService;
-import com.hhr.backend.service.feature.FeatureService;
-import com.hhr.backend.service.image.ImageService;
 import com.hhr.backend.service.product.ProductService;
 import org.apache.log4j.Logger;
 import org.modelmapper.ModelMapper;
@@ -22,10 +19,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-/*
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-*/
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -34,21 +27,11 @@ import java.util.stream.Collectors;
 @RequestMapping("/products")
 public class ProductController {
 
-/*    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    String createdByUsername = authentication.getName();*/
     private static final Logger logger = Logger.getLogger(ProductController.class);
     @Autowired
     private ProductService productService;
     @Autowired
-    private CategoryService categoryService;
-    @Autowired
-    private FeatureService featureService;
-    @Autowired
-    private ImageService imageService;
-    @Autowired
     private ModelMapper modelMapper;
-    @Autowired
-    private UserUtils userUtils;
 
     @GetMapping
     public ResponseEntity<Page<ProductResponseDTO>> getProducts(
@@ -77,7 +60,6 @@ public class ProductController {
         Page<ProductResponseDTO> responsePage = productPage.map(product -> {
             logger.info("Product mapping");
             ProductResponseDTO responseDTO = modelMapper.map(product, ProductResponseDTO.class);
-/*
             logger.info("Categories mapping");
             Set<CategoryResponseDTO> categoryDTOs = product.getCategories().stream()
                     .map(category -> modelMapper.map(category, CategoryResponseDTO.class))
@@ -89,15 +71,13 @@ public class ProductController {
                     .map(feature -> modelMapper.map(feature, FeatureResponseDTO.class))
                     .collect(Collectors.toSet());
             logger.info("setting feature DTO");
-*/
-/*
             responseDTO.setFeatures(featureDTOs);
-*/
-            logger.info("Images mapping");
+
+/*            logger.info("Images mapping");
             Set<ImageResponseDTO> imageDTOs = product.getImages().stream()
                     .map(image -> modelMapper.map(image, ImageResponseDTO.class))
                     .collect(Collectors.toSet());
-            logger.info("setting image DTO");
+            logger.info("setting image DTO");*/
 /*
             responseDTO.setImages(imageDTOs);
 */
@@ -154,25 +134,26 @@ public class ProductController {
         return null;
     }
 
-
     @PostMapping("/create")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Object> createProduct(@RequestBody ProductRequestDTO requestDTO) {
+        return null;
+    }
+
+    @PostMapping("/createfull")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<Object> createProductFull(@RequestBody ProductRequestDTO requestDTO) {
+        logger.info("createProductFull method: starting...");
         try {
-            if (productService.existsByName(requestDTO.getName())) {
-                throw new ResourceAlreadyExistsException("Product " + requestDTO.getName() + " already exists.");
-            }
-
-            Product product = modelMapper.map(requestDTO, Product.class);
-
-            Product createdProduct = productService.create(product);
-
-            ProductResponseDTO responseDTO = modelMapper.map(createdProduct, ProductResponseDTO.class);
-
-            return ResponseEntity.status(HttpStatus.CREATED).body(responseDTO);
+            logger.info("createProductFull method: productService.createProduct(requestDTO)");
+            ProductResponseDTO createdFull = productService.createFull(requestDTO);
+            logger.info("createProductFull method: Response CREATED");
+            return ResponseEntity.status(HttpStatus.CREATED).body(createdFull);
         } catch (ResourceAlreadyExistsException e) {
+            logger.info("createProductFull method: Response CONFLICT");
             return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
         } catch (Exception e) {
+            logger.info("createProductFull method: Response INTERNAL_SERVER_ERROR");
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error creating the product.");
         }
     }
@@ -180,7 +161,6 @@ public class ProductController {
     @PutMapping("/update")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product product) {
-
         try {
             Product updatedProduct = productService.update(id, product);
             return ResponseEntity.ok(updatedProduct);

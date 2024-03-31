@@ -38,14 +38,6 @@ public class User implements UserDetails {
     private Contact contact;
 
     private Boolean active;
-    private LocalDateTime createdDate;
-    private LocalDateTime updatedDate;
-    @ManyToOne
-    @JoinColumn(name = "created_by")
-    private User createdBy;
-    @ManyToOne
-    @JoinColumn(name = "updated_by")
-    private User updatedBy;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

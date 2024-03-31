@@ -1,5 +1,6 @@
 package com.hhr.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,17 +25,10 @@ public class Category {
     @Column(unique=true)
     private String name;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "categories")
+    @JsonBackReference
     private Set<Product> products;
 
     private Boolean active;
-    private LocalDateTime createdDate;
-    private LocalDateTime updatedDate;
-    @ManyToOne
-    @JoinColumn(name = "created_by")
-    private User createdBy;
-    @ManyToOne
-    @JoinColumn(name = "updated_by")
-    private User updatedBy;
 
 }

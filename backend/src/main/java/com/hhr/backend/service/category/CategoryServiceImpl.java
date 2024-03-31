@@ -21,7 +21,6 @@ public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    @Transactional
     @Override
     public Category create(Category category) throws ResourceAlreadyExistsException {
         logger.info("createCategory method: Getting started.");
@@ -33,7 +32,6 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryRepository.save(category);
     }
 
-    @Transactional
     @Override
     public Category update(Long id, Category entity) throws ResourceNotFoundException, ResourceAlreadyExistsException {
         logger.info("updateCategory method: Getting started.");
@@ -51,7 +49,6 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryRepository.save(existingCategory);
     }
 
-    @Transactional
     @Override
     public void delete(Long id) throws ResourceNotFoundException {
         logger.info("deleteCategory method: Getting started.");

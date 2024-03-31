@@ -1,11 +1,10 @@
 package com.hhr.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
-import java.time.LocalDateTime;
 import java.util.Set;
 
 @Data
@@ -30,7 +29,8 @@ public class Product {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    @JsonManagedReference
     private Set<Category> categories;
 
     @ManyToMany
@@ -39,7 +39,8 @@ public class Product {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "feature_id")
     )
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    @JsonManagedReference
     private Set<Feature> features;
 
     @ManyToMany
@@ -48,26 +49,20 @@ public class Product {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "image_id")
     )
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    @JsonManagedReference
     private Set<Image> images;
 
     @ManyToMany
     @JoinTable(
-            name = "related_product",
+            name = "product_related",
             joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "related_product_id")
+            inverseJoinColumns = @JoinColumn(name = "product_related_id")
     )
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<Product> related;
 
+    private Boolean deleted;
     private Boolean active;
-    private LocalDateTime createdDate;
-    private LocalDateTime updatedDate;
-    @ManyToOne
-    @JoinColumn(name = "created_by")
-    private User createdBy;
-    @ManyToOne
-    @JoinColumn(name = "updated_by")
-    private User updatedBy;
 
 }

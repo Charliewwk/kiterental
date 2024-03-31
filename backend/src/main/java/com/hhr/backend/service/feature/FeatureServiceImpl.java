@@ -21,7 +21,6 @@ public class FeatureServiceImpl implements FeatureService{
     @Autowired
     private FeatureRepository featureRepository;
 
-    @Transactional
     @Override
     public Feature create(Feature entity) throws ResourceAlreadyExistsException {
         logger.info("createFeature method: Getting started.");
@@ -34,7 +33,6 @@ public class FeatureServiceImpl implements FeatureService{
         return featureRepository.save(entity);
     }
 
-    @Transactional
     @Override
     public Feature update(Long id, Feature entity) throws ResourceNotFoundException, ResourceAlreadyExistsException {
         logger.info("updateFeature method: Getting started.");
@@ -53,7 +51,6 @@ public class FeatureServiceImpl implements FeatureService{
         return featureRepository.save(existingFeature);
     }
 
-    @Transactional
     @Override
     public void delete(Long id) throws ResourceNotFoundException {
         logger.info("deleteFeature method: Getting started.");

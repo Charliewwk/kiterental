@@ -1,19 +1,27 @@
 package com.hhr.backend.service.product;
 
+import com.hhr.backend.dto.product.ProductRequestDTO;
+import com.hhr.backend.dto.product.ProductResponseDTO;
+import com.hhr.backend.entity.Category;
+import com.hhr.backend.entity.Feature;
+import com.hhr.backend.entity.Image;
 import com.hhr.backend.entity.Product;
 import com.hhr.backend.exception.ResourceAlreadyExistsException;
 import com.hhr.backend.exception.ResourceNotFoundException;
+import com.hhr.backend.repository.CategoryRepository;
+import com.hhr.backend.repository.FeatureRepository;
+import com.hhr.backend.repository.ImageRepository;
 import com.hhr.backend.repository.ProductRepository;
-import jakarta.transaction.Transactional;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -21,83 +29,132 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    @Transactional
+    @Autowired
+    private CategoryRepository categoryRepository;
+
+    @Autowired
+    private FeatureRepository featureRepository;
+
+    @Autowired
+    private ImageRepository imageRepository;
+
+    @Autowired
+    private ModelMapper modelMapper;
+
+
     @Override
     public Product create(Product entity) throws ResourceAlreadyExistsException {
-        logger.info("createProduct method: Getting started.");
-        if (productRepository.existsByName(entity.getName())) {
-            logger.info("createProduct method: Product with name " + entity.getName() + " already exists.");
-            throw new ResourceAlreadyExistsException("Product with name " + entity.getName() + " already exists.");
-        }
-        logger.info("createProduct method: Successful product registration");
-        return productRepository.save(entity);
+        return null;
     }
 
-    @Transactional
     @Override
-    public Product update(Long id, Product entity) throws ResourceNotFoundException, ResourceAlreadyExistsException {
-        logger.info("updateProduct method: Getting started.");
-        Optional<Product> optionalProduct = productRepository.findById(id);
-        if (optionalProduct.isEmpty()) {
-            logger.info("updateProduct method: Product with ID " + id + " not found.");
-            throw new ResourceNotFoundException("Product with ID " + id + " not found.");
+    @Transactional
+    public ProductResponseDTO createFull(ProductRequestDTO requestDTO) throws ResourceAlreadyExistsException {
+        logger.info("createFull method: starting...");
+        logger.info("createFull method: if productRepository.existsByName");
+        if (productRepository.existsByName(requestDTO.getName())) {
+            logger.info("createFull method: " + requestDTO.getName() + " already exists");
+            throw new ResourceAlreadyExistsException(requestDTO.getName() + " already exists.");
         }
-        Product existingProduct = optionalProduct.get();
-        if (!existingProduct.getName().equals(entity.getName()) && productRepository.existsByName(entity.getName())) {
-            logger.info("updateProduct method: Product with name " + entity.getName() + " already exists.");
-            throw new ResourceAlreadyExistsException("Product with name " + entity.getName() + " already exists.");
-        }
-        logger.info("updateProduct method: Successful product modification");
-        return productRepository.save(existingProduct);
+        logger.info("createFull method: mapProductRequestDTOToProduct(requestDTO)");
+        Product product = mapProductRequestDTOToProduct(requestDTO);
+        logger.info("createFull method: productRepository.save(product)");
+        Product savedProduct = productRepository.save(product);
+        logger.info("createFull method: return ProductResponseDTO");
+        return modelMapper.map(savedProduct, ProductResponseDTO.class);
+
     }
 
-    @Transactional
-    @Override
-    public void delete(Long id) throws ResourceNotFoundException {
-        logger.info("deleteProduct method: Getting started.");
-        if (!productRepository.existsById(id)) {
-            logger.info("deleteProduct method: Product with ID " + id + " not found.");
-            throw new ResourceNotFoundException("Product with ID " + id + " not found.");
+    private Product mapProductRequestDTOToProduct(ProductRequestDTO requestDTO) {
+
+        Product product = new Product();
+        product.setName(requestDTO.getName());
+        product.setDescription(requestDTO.getDescription());
+        product.setPrice(requestDTO.getPrice());
+        product.setActive(requestDTO.getActive());
+
+        if (requestDTO.getCategories() != null) {
+            Set<Category> categories = requestDTO.getCategories().stream()
+                    .map(categoryRequestDTO -> {
+                        return categoryRepository.findByName(categoryRequestDTO.getName())
+                                .orElseGet(() -> {
+                                    Category newCategory = new Category();
+                                    newCategory.setName(categoryRequestDTO.getName());
+                                    newCategory.setActive(true);
+                                    return categoryRepository.save(newCategory);
+                                });
+                    })
+                    .collect(Collectors.toSet());
+            product.setCategories(categories);
         }
-        logger.info("deleteProduct method: Successful product removal");
-        productRepository.deleteById(id);
+
+        if (requestDTO.getFeatures() != null) {
+            Set<Feature> features = requestDTO.getFeatures().stream()
+                    .map(featureRequestDTO -> {
+                        return featureRepository.findByName(featureRequestDTO.getName())
+                                .orElseGet(() -> {
+                                    Feature newFeature = new Feature();
+                                    newFeature.setName(featureRequestDTO.getName());
+                                    newFeature.setActive(true);
+                                    return featureRepository.save(newFeature);
+                                });
+                    })
+                    .collect(Collectors.toSet());
+            product.setFeatures(features);
+        }
+
+        if (requestDTO.getImages() != null) {
+            Set<Image> images = requestDTO.getImages().stream()
+                    .map(imageRequestDTO -> {
+                        return imageRepository.findByName(imageRequestDTO.getName())
+                                .orElseGet(() -> {
+                                    Image newImage = new Image();
+                                    newImage.setName(imageRequestDTO.getName());
+                                    newImage.setActive(true);
+                                    return imageRepository.save(newImage);
+                                });
+                    })
+                    .collect(Collectors.toSet());
+            product.setImages(images);
+        }
+
+        return product;
+
+    }
+
+    @Override
+    public Product update(Long aLong, Product entity) throws ResourceNotFoundException, ResourceAlreadyExistsException {
+        return null;
+    }
+
+    @Override
+    public void delete(Long aLong) throws ResourceNotFoundException {
+
     }
 
     @Override
     public Page<Product> findAll(Pageable pageable) {
-        logger.info("findAll method: Executed.");
-        return productRepository.findAll(pageable);
+        return null;
     }
 
     @Override
     public Page<Product> findRandom(Pageable pageable) {
-        logger.info("findRandom method: Getting started.");
-        List<Product> allProducts = productRepository.findAll();
-        Collections.shuffle(allProducts);
-        int pageSize = pageable.getPageSize();
-        int pageNumber = pageable.getPageNumber();
-        int start = pageSize * pageNumber;
-        int end = Math.min(start + pageSize, allProducts.size());
-        List<Product> randomProducts = allProducts.subList(start, end);
-        logger.info("findRandom method: Getting Finalized.");
-        return new PageImpl<>(randomProducts, pageable, allProducts.size());
+        return null;
     }
 
     @Override
-    public Optional<Product> findById(Long id) {
-        logger.info("findById method: Executed.");
-        return productRepository.findById(id);
+    public Optional<Product> findById(Long aLong) {
+        return Optional.empty();
     }
 
     @Override
     public Optional<Product> findByName(String name) {
-        logger.info("findByName method: Executed.");
-        return productRepository.findByName(name);
+        return Optional.empty();
     }
 
     @Override
     public boolean existsByName(String name) {
-        logger.info("existsByName method: Executed.");
-        return productRepository.existsByName(name);
+        return false;
     }
+
 }

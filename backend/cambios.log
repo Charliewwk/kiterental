@@ -1,114 +1,138 @@
-[2024-03-28 20:53:21] [ INFO ] [ProductController:159] Starting createProduct
-[2024-03-28 20:53:21] [ INFO ] [GenericService:100] existsByName method: Executed.
-[2024-03-28 20:53:21] [ INFO ] [ProductController:166] Product product
-[2024-03-28 20:53:21] [ INFO ] [ProductController:169] Categories step 1
-[2024-03-28 20:53:21] [ INFO ] [ProductController:228] Starting function processCategories().
-[2024-03-28 20:53:21] [ INFO ] [GenericService:94] findByNameCategory method: Executed.
-[2024-03-28 20:53:21] [ INFO ] [ProductController:236] Verifying category: Categoría 2
-[2024-03-28 20:53:21] [ INFO ] [ProductController:239] Category Categoría 2 exists!, only the relationship will be kept
-[2024-03-29 11:34:58] [ INFO ] [ProductController:159] Starting createProduct
-[2024-03-29 11:34:58] [ INFO ] [GenericService:100] existsByName method: Executed.
-[2024-03-29 11:34:58] [ INFO ] [ProductController:166] Product product
-[2024-03-29 11:34:58] [ INFO ] [ProductController:169] Categories step 1
-[2024-03-29 11:34:58] [ INFO ] [ProductController:228] Starting function processCategories().
-[2024-03-29 11:34:58] [ INFO ] [GenericService:94] findByNameCategory method: Executed.
-[2024-03-29 11:34:58] [ INFO ] [ProductController:236] Verifying category: Categoría 2
-[2024-03-29 11:34:58] [ INFO ] [ProductController:239] Category Categoría 2 exists!, only the relationship will be kept
-[2024-03-29 11:36:11] [ INFO ] [ProductController:159] Starting createProduct
-[2024-03-29 11:36:11] [ INFO ] [GenericService:100] existsByName method: Executed.
-[2024-03-29 11:36:11] [ INFO ] [ProductController:166] Product product
-[2024-03-29 11:36:11] [ INFO ] [ProductController:169] Categories step 1
-[2024-03-29 11:36:11] [ INFO ] [ProductController:228] Starting function processCategories().
-[2024-03-29 11:36:11] [ INFO ] [GenericService:94] findByNameCategory method: Executed.
-[2024-03-29 11:36:12] [ INFO ] [ProductController:236] Verifying category: Categoría 2
-[2024-03-29 11:36:12] [ INFO ] [ProductController:239] Category Categoría 2 categoryNameValue
-[2024-03-29 12:03:50] [ INFO ] [ProductController:159] Starting createProduct
-[2024-03-29 12:03:50] [ INFO ] [GenericService:100] existsByName method: Executed.
-[2024-03-29 12:03:50] [ INFO ] [ProductController:166] Product product
-[2024-03-29 12:03:50] [ INFO ] [ProductController:169] Categories step 1
-[2024-03-29 12:03:50] [ INFO ] [ProductController:228] Starting function processCategories().
-[2024-03-29 12:03:50] [ INFO ] [GenericService:94] findByNameCategory method: Executed.
-[2024-03-29 12:03:50] [ INFO ] [ProductController:236] Verifying category: Categoría 2
-[2024-03-29 12:03:50] [ INFO ] [ProductController:239] Category Categoría 2 exists
-[2024-03-29 12:04:47] [ INFO ] [ProductController:159] Starting createProduct
-[2024-03-29 12:04:47] [ INFO ] [GenericService:100] existsByName method: Executed.
-[2024-03-29 12:04:47] [ INFO ] [ProductController:166] Product product
-[2024-03-29 12:04:47] [ INFO ] [ProductController:169] Categories step 1
-[2024-03-29 12:04:47] [ INFO ] [ProductController:228] Starting function processCategories().
-[2024-03-29 12:04:47] [ INFO ] [GenericService:94] findByNameCategory method: Executed.
-[2024-03-29 12:04:47] [ INFO ] [ProductController:236] Verifying category: Categoría 3
-[2024-03-29 12:04:47] [ INFO ] [ProductController:245] Category Categoría 3 does not exist!, category will be created and relationship will be saved
-[2024-03-29 12:04:47] [ INFO ] [GenericService:27] createCategory method: Getting started.
-[2024-03-29 12:04:47] [ INFO ] [GenericService:32] createCategory method: Successful category registration
-[2024-03-29 12:04:47] [ INFO ] [ProductController:253] Successful execution of categoryService
-[2024-03-29 12:05:01] [ INFO ] [ProductController:159] Starting createProduct
-[2024-03-29 12:05:01] [ INFO ] [GenericService:100] existsByName method: Executed.
-[2024-03-29 12:05:01] [ INFO ] [ProductController:166] Product product
-[2024-03-29 12:05:01] [ INFO ] [ProductController:169] Categories step 1
-[2024-03-29 12:05:01] [ INFO ] [ProductController:228] Starting function processCategories().
-[2024-03-29 12:05:01] [ INFO ] [GenericService:94] findByNameCategory method: Executed.
-[2024-03-29 12:05:02] [ INFO ] [ProductController:236] Verifying category: Categoría 3
-[2024-03-29 12:05:02] [ INFO ] [ProductController:239] Category Categoría 3 exists
-[2024-03-29 12:16:58] [ INFO ] [ProductController:159] Starting createProduct
-[2024-03-29 12:16:58] [ INFO ] [GenericService:100] existsByName method: Executed.
-[2024-03-29 12:16:58] [ INFO ] [ProductController:166] Product product
-[2024-03-29 12:16:58] [ INFO ] [ProductController:169] Categories step 1
-[2024-03-29 12:16:58] [ INFO ] [ProductController:228] Starting function processCategories().
-[2024-03-29 12:16:58] [ INFO ] [GenericService:94] findByNameCategory method: Executed.
-[2024-03-29 12:16:58] [ INFO ] [ProductController:236] Verifying category: Categoría 3
-[2024-03-29 12:16:58] [ INFO ] [ProductController:239] Category Categoría 3 exists
-[2024-03-29 12:47:19] [ INFO ] [ProductController:159] Starting createProduct
-[2024-03-29 12:47:19] [ INFO ] [GenericService:100] existsByName method: Executed.
-[2024-03-29 12:47:19] [ INFO ] [ProductController:166] Product product
-[2024-03-29 12:47:19] [ INFO ] [ProductController:169] Categories step 1
-[2024-03-29 12:47:19] [ INFO ] [ProductController:228] Starting function processCategories().
-[2024-03-29 12:47:19] [ INFO ] [GenericService:94] findByNameCategory method: Executed.
-[2024-03-29 12:47:19] [ INFO ] [ProductController:236] Verifying category: Categoría 3
-[2024-03-29 12:47:19] [ INFO ] [ProductController:239] Category Categoría 3 exists
-[2024-03-29 12:48:37] [ INFO ] [UserService:54] signUp method: Getting started.
-[2024-03-29 12:48:37] [ INFO ] [UserService:49] sendWelcomeEmail method: Sending to chr.edg.fer@gmail.com
-[2024-03-29 12:48:41] [ INFO ] [UserService:51] sendWelcomeEmail method: Successfully sent.
-[2024-03-29 12:48:41] [ INFO ] [UserService:81] signUp method: Finishing.
-[2024-03-29 12:49:08] [ INFO ] [ProductController:159] Starting createProduct
-[2024-03-29 12:49:08] [ INFO ] [GenericService:100] existsByName method: Executed.
-[2024-03-29 12:49:08] [ INFO ] [ProductController:166] Product product
-[2024-03-29 12:49:08] [ INFO ] [ProductController:169] Categories step 1
-[2024-03-29 12:49:08] [ INFO ] [ProductController:228] Starting function processCategories().
-[2024-03-29 12:49:08] [ INFO ] [GenericService:94] findByNameCategory method: Executed.
-[2024-03-29 12:49:08] [ INFO ] [ProductController:236] Verifying category: Categoría 3
-[2024-03-29 12:49:08] [ INFO ] [ProductController:245] Category Categoría 3 does not exist!, category will be created and relationship will be saved
-[2024-03-29 12:49:08] [ INFO ] [GenericService:27] createCategory method: Getting started.
-[2024-03-29 12:49:08] [ INFO ] [GenericService:32] createCategory method: Successful category registration
-[2024-03-29 12:49:09] [ INFO ] [ProductController:253] Successful execution of categoryService
-[2024-03-29 12:53:00] [ INFO ] [UserService:54] signUp method: Getting started.
-[2024-03-29 12:53:00] [ INFO ] [UserService:49] sendWelcomeEmail method: Sending to chr.edg.fer@gmail.com
-[2024-03-29 12:53:04] [ INFO ] [UserService:51] sendWelcomeEmail method: Successfully sent.
-[2024-03-29 12:53:04] [ INFO ] [UserService:81] signUp method: Finishing.
-[2024-03-29 12:53:30] [ INFO ] [ProductController:159] Starting createProduct
-[2024-03-29 12:53:30] [ INFO ] [GenericService:100] existsByName method: Executed.
-[2024-03-29 12:53:30] [ INFO ] [ProductController:166] Product product
-[2024-03-29 12:53:30] [ INFO ] [ProductController:169] Categories step 1
-[2024-03-29 12:53:30] [ INFO ] [ProductController:170] [CategoryRequestDTO(name=Categoría 3), CategoryRequestDTO(name=Categoría 2), CategoryRequestDTO(name=Categoría 1)]
-[2024-03-29 12:53:30] [ INFO ] [ProductController:229] Starting function processCategories().
-[2024-03-29 12:53:30] [ INFO ] [GenericService:94] findByNameCategory method: Executed.
-[2024-03-29 12:53:30] [ INFO ] [ProductController:237] Verifying category: Categoría 3
-[2024-03-29 12:53:30] [ INFO ] [ProductController:245] Category Categoría 3 does not exist!, category will be created and relationship will be saved
-[2024-03-29 12:53:30] [ INFO ] [GenericService:27] createCategory method: Getting started.
-[2024-03-29 12:53:30] [ INFO ] [GenericService:32] createCategory method: Successful category registration
-[2024-03-29 12:53:30] [ INFO ] [ProductController:253] Successful execution of categoryService
-[2024-03-29 13:09:54] [ INFO ] [UserService:54] signUp method: Getting started.
-[2024-03-29 13:09:54] [ INFO ] [UserService:49] sendWelcomeEmail method: Sending to chr.edg.fer@gmail.com
-[2024-03-29 13:09:58] [ INFO ] [UserService:51] sendWelcomeEmail method: Successfully sent.
-[2024-03-29 13:09:58] [ INFO ] [UserService:81] signUp method: Finishing.
-[2024-03-29 13:10:19] [ INFO ] [ProductController:159] Starting createProduct
-[2024-03-29 13:10:19] [ INFO ] [GenericService:100] existsByName method: Executed.
-[2024-03-29 13:10:19] [ INFO ] [ProductController:166] Product product
-[2024-03-29 13:10:19] [ INFO ] [ProductController:169] Categories step 1
-[2024-03-29 13:10:19] [ INFO ] [ProductController:170] [CategoryRequestDTO(name=Categoría 3), CategoryRequestDTO(name=Categoría 2), CategoryRequestDTO(name=Categoría 1)]
-[2024-03-29 13:10:19] [ INFO ] [ProductController:229] Starting function processCategories().
-[2024-03-29 13:10:19] [ INFO ] [GenericService:94] findByNameCategory method: Executed.
-[2024-03-29 13:10:19] [ INFO ] [ProductController:237] Verifying category: Categoría 3
-[2024-03-29 13:10:19] [ INFO ] [ProductController:244] Category Categoría 3 does not exist!, category will be created and relationship will be saved
-[2024-03-29 13:10:19] [ INFO ] [GenericService:27] createCategory method: Getting started.
-[2024-03-29 13:10:19] [ INFO ] [GenericService:32] createCategory method: Successful category registration
-[2024-03-29 13:10:19] [ INFO ] [ProductController:252] Successful execution of categoryService
+[2024-03-30 20:01:08] [ INFO ] [GenericService:87] Buscar la categoría Categoría 8en la base de datos por nombre
+[2024-03-30 20:01:08] [ INFO ] [GenericService:90] La categoría Categoría 8 no existe, se crea nueva
+[2024-03-30 20:01:08] [ INFO ] [GenericService:97] Agregar la categoría Categoría 8 al conjunto de categorías A
+[2024-03-30 20:01:08] [ INFO ] [GenericService:99] Agregar la categoría Categoría 8 al conjunto de categorías B
+[2024-03-30 20:01:08] [ INFO ] [GenericService:87] Buscar la categoría Categoría 7en la base de datos por nombre
+[2024-03-30 20:01:08] [ INFO ] [GenericService:97] Agregar la categoría Categoría 7 al conjunto de categorías A
+[2024-03-30 20:09:35] [ INFO ] [GenericService:87] Buscar la categoría Categoría 8 en la base de datos por nombre
+[2024-03-30 20:09:35] [ INFO ] [GenericService:87] Buscar la categoría Categoría 7 en la base de datos por nombre
+[2024-03-30 20:10:19] [ INFO ] [GenericService:87] Buscar la categoría Categoría 8 en la base de datos por nombre
+[2024-03-30 20:10:19] [ INFO ] [GenericService:87] Buscar la categoría Categoría 7 en la base de datos por nombre
+[2024-03-30 20:13:53] [ INFO ] [GenericService:87] Buscar la categoría Categoría 8 en la base de datos por nombre
+[2024-03-30 20:13:53] [ INFO ] [GenericService:96] Si la categoría Categoría 8 no existe, crear una nueva
+[2024-03-30 20:13:53] [ INFO ] [GenericService:102] Guardar la nueva categoría Categoría 8en la base de datos
+[2024-03-30 20:13:53] [ INFO ] [GenericService:104] Agregar la category Categoría 8 al conjunto de categorías
+[2024-03-30 20:13:53] [ INFO ] [GenericService:87] Buscar la categoría Categoría 7 en la base de datos por nombre
+[2024-03-30 20:13:53] [ INFO ] [GenericService:90] Verificar si la categoría Categoría 7 ya está presente en el conjunto
+[2024-03-30 20:14:52] [ INFO ] [GenericService:87] Buscar la categoría Categoría 8 en la base de datos por nombre
+[2024-03-30 20:14:52] [ INFO ] [GenericService:96] La categoría Categoría 8 no existe, crear una nueva
+[2024-03-30 20:14:52] [ INFO ] [GenericService:102] Guardar la nueva categoría Categoría 8 en la base de datos
+[2024-03-30 20:14:52] [ INFO ] [GenericService:104] Agregar la category Categoría 8 al conjunto de categorías
+[2024-03-30 20:14:52] [ INFO ] [GenericService:87] Buscar la categoría Categoría 7 en la base de datos por nombre
+[2024-03-30 20:14:52] [ INFO ] [GenericService:90] Verifica si la categoría Categoría 7 ya está presente en el conjunto
+[2024-03-30 20:15:00] [ INFO ] [GenericService:87] Buscar la categoría Categoría 10 en la base de datos por nombre
+[2024-03-30 20:15:00] [ INFO ] [GenericService:96] La categoría Categoría 10 no existe, crear una nueva
+[2024-03-30 20:15:00] [ INFO ] [GenericService:102] Guardar la nueva categoría Categoría 10 en la base de datos
+[2024-03-30 20:15:00] [ INFO ] [GenericService:104] Agregar la category Categoría 10 al conjunto de categorías
+[2024-03-30 20:15:00] [ INFO ] [GenericService:87] Buscar la categoría Categoría 11 en la base de datos por nombre
+[2024-03-30 20:15:00] [ INFO ] [GenericService:96] La categoría Categoría 11 no existe, crear una nueva
+[2024-03-30 20:15:00] [ INFO ] [GenericService:102] Guardar la nueva categoría Categoría 11 en la base de datos
+[2024-03-30 20:15:00] [ INFO ] [GenericService:104] Agregar la category Categoría 11 al conjunto de categorías
+[2024-03-30 20:15:15] [ INFO ] [GenericService:87] Buscar la categoría Categoría 11 en la base de datos por nombre
+[2024-03-30 20:15:15] [ INFO ] [GenericService:90] Verifica si la categoría Categoría 11 ya está presente en el conjunto
+[2024-03-30 20:15:15] [ INFO ] [GenericService:92] Agregar la category Categoría 11 al conjunto de categorías
+[2024-03-30 20:18:05] [ INFO ] [GenericService:97] existsByNameCategory method: Executed.
+[2024-03-30 20:18:05] [ INFO ] [GenericService:26] createCategory method: Getting started.
+[2024-03-30 20:18:05] [ INFO ] [GenericService:31] createCategory method: Successful category registration
+[2024-03-30 20:30:05] [ INFO ] [GenericService:97] existsByNameCategory method: Executed.
+[2024-03-30 22:17:16] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-30 22:17:17] [ INFO ] [UserService:49] sendWelcomeEmail method: Sending to chr.edg.fer@gmail.com
+[2024-03-30 22:17:21] [ INFO ] [UserService:51] sendWelcomeEmail method: Successfully sent.
+[2024-03-30 22:17:21] [ INFO ] [UserService:81] signUp method: Finishing.
+[2024-03-31 10:44:20] [ INFO ] [ProductController:144] CreateProductFull method: starting...
+[2024-03-31 10:44:20] [ INFO ] [ProductController:146] CreateProductFull method: productService.createProduct(requestDTO)
+[2024-03-31 10:44:20] [ INFO ] [ProductController:151] CreateProductFull method: Response CONFLICT
+[2024-03-31 10:44:27] [ INFO ] [ProductController:144] CreateProductFull method: starting...
+[2024-03-31 10:44:27] [ INFO ] [ProductController:146] CreateProductFull method: productService.createProduct(requestDTO)
+[2024-03-31 10:44:27] [ INFO ] [ProductController:148] CreateProductFull method: Response CREATED
+[2024-03-31 10:45:52] [ INFO ] [ProductController:144] CreateProductFull method: starting...
+[2024-03-31 10:45:52] [ INFO ] [ProductController:146] CreateProductFull method: productService.createProduct(requestDTO)
+[2024-03-31 10:45:53] [ INFO ] [ProductController:148] CreateProductFull method: Response CREATED
+[2024-03-31 10:46:46] [ INFO ] [ProductController:144] CreateProductFull method: starting...
+[2024-03-31 10:46:46] [ INFO ] [ProductController:146] CreateProductFull method: productService.createProduct(requestDTO)
+[2024-03-31 10:46:46] [ INFO ] [ProductController:151] CreateProductFull method: Response CONFLICT
+[2024-03-31 10:46:53] [ INFO ] [ProductController:144] CreateProductFull method: starting...
+[2024-03-31 10:46:53] [ INFO ] [ProductController:146] CreateProductFull method: productService.createProduct(requestDTO)
+[2024-03-31 10:46:53] [ INFO ] [ProductController:148] CreateProductFull method: Response CREATED
+[2024-03-31 10:48:24] [ INFO ] [ProductController:144] CreateProductFull method: starting...
+[2024-03-31 10:48:24] [ INFO ] [ProductController:146] CreateProductFull method: productService.createProduct(requestDTO)
+[2024-03-31 10:48:24] [ INFO ] [ProductController:151] CreateProductFull method: Response CONFLICT
+[2024-03-31 10:48:30] [ INFO ] [ProductController:144] CreateProductFull method: starting...
+[2024-03-31 10:48:30] [ INFO ] [ProductController:146] CreateProductFull method: productService.createProduct(requestDTO)
+[2024-03-31 10:48:31] [ INFO ] [ProductController:148] CreateProductFull method: Response CREATED
+[2024-03-31 10:48:46] [ INFO ] [ProductController:144] CreateProductFull method: starting...
+[2024-03-31 10:48:46] [ INFO ] [ProductController:146] CreateProductFull method: productService.createProduct(requestDTO)
+[2024-03-31 10:48:47] [ INFO ] [ProductController:148] CreateProductFull method: Response CREATED
+[2024-03-31 10:48:58] [ INFO ] [ProductController:144] CreateProductFull method: starting...
+[2024-03-31 10:48:58] [ INFO ] [ProductController:146] CreateProductFull method: productService.createProduct(requestDTO)
+[2024-03-31 10:48:59] [ INFO ] [ProductController:148] CreateProductFull method: Response CREATED
+[2024-03-31 10:50:07] [ INFO ] [ProductController:39] Getting started
+[2024-03-31 10:50:07] [ INFO ] [ProductController:42] Setting sort order
+[2024-03-31 10:50:07] [ INFO ] [ProductController:50] Conditional that sets the productPage variable to random or not
+[2024-03-31 10:50:07] [ INFO ] [ProductController:52] //////////////////////////////////////
+[2024-03-31 10:50:07] [ INFO ] [ProductController:53] 
+[2024-03-31 10:50:07] [ INFO ] [ProductController:54] //////////////////////////////////////
+[2024-03-31 10:50:20] [ INFO ] [ProductController:39] Getting started
+[2024-03-31 10:50:20] [ INFO ] [ProductController:46] Setting default sort order
+[2024-03-31 10:50:20] [ INFO ] [ProductController:50] Conditional that sets the productPage variable to random or not
+[2024-03-31 10:50:20] [ INFO ] [ProductController:52] //////////////////////////////////////
+[2024-03-31 10:50:20] [ INFO ] [ProductController:53] 
+[2024-03-31 10:50:20] [ INFO ] [ProductController:54] //////////////////////////////////////
+[2024-03-31 10:59:21] [ INFO ] [ProductController:144] CreateProductFull method: starting...
+[2024-03-31 10:59:21] [ INFO ] [ProductController:146] CreateProductFull method: productService.createProduct(requestDTO)
+[2024-03-31 10:59:21] [ INFO ] [GenericService:48] createFull method: starting...
+[2024-03-31 10:59:21] [ INFO ] [GenericService:49] createFull method: if productRepository.existsByName
+[2024-03-31 10:59:21] [ INFO ] [GenericService:51] createFull method: Producto A62 already exists
+[2024-03-31 10:59:21] [ INFO ] [ProductController:151] CreateProductFull method: Response CONFLICT
+[2024-03-31 20:12:17] [ INFO ] [UserService:54] signUp method: Getting started.
+[2024-03-31 20:12:18] [ INFO ] [UserService:49] sendWelcomeEmail method: Sending to chr.edg.fer@gmail.com
+[2024-03-31 20:12:23] [ INFO ] [UserService:51] sendWelcomeEmail method: Successfully sent.
+[2024-03-31 20:12:23] [ INFO ] [UserService:81] signUp method: Finishing.
+[2024-03-31 20:12:45] [ INFO ] [ProductController:146] createProductFull method: starting...
+[2024-03-31 20:12:45] [ INFO ] [ProductController:148] createProductFull method: productService.createProduct(requestDTO)
+[2024-03-31 20:12:45] [ INFO ] [GenericService:53] createFull method: starting...
+[2024-03-31 20:12:45] [ INFO ] [GenericService:54] createFull method: if productRepository.existsByName
+[2024-03-31 20:12:45] [ INFO ] [GenericService:59] createFull method: mapProductRequestDTOToProduct(requestDTO)
+[2024-03-31 20:12:45] [ INFO ] [GenericService:61] createFull method: productRepository.save(product)
+[2024-03-31 20:12:45] [ INFO ] [GenericService:63] createFull method: return ProductResponseDTO
+[2024-03-31 20:12:46] [ INFO ] [ProductController:150] createProductFull method: Response CREATED
+[2024-03-31 20:13:08] [ INFO ] [ProductController:146] createProductFull method: starting...
+[2024-03-31 20:13:08] [ INFO ] [ProductController:148] createProductFull method: productService.createProduct(requestDTO)
+[2024-03-31 20:13:08] [ INFO ] [GenericService:53] createFull method: starting...
+[2024-03-31 20:13:08] [ INFO ] [GenericService:54] createFull method: if productRepository.existsByName
+[2024-03-31 20:13:08] [ INFO ] [GenericService:56] createFull method: Producto nuevo already exists
+[2024-03-31 20:13:08] [ INFO ] [ProductController:153] createProductFull method: Response CONFLICT
+[2024-03-31 20:13:16] [ INFO ] [ProductController:146] createProductFull method: starting...
+[2024-03-31 20:13:16] [ INFO ] [ProductController:148] createProductFull method: productService.createProduct(requestDTO)
+[2024-03-31 20:13:16] [ INFO ] [GenericService:53] createFull method: starting...
+[2024-03-31 20:13:16] [ INFO ] [GenericService:54] createFull method: if productRepository.existsByName
+[2024-03-31 20:13:16] [ INFO ] [GenericService:59] createFull method: mapProductRequestDTOToProduct(requestDTO)
+[2024-03-31 20:13:16] [ INFO ] [GenericService:61] createFull method: productRepository.save(product)
+[2024-03-31 20:13:16] [ INFO ] [GenericService:63] createFull method: return ProductResponseDTO
+[2024-03-31 20:13:16] [ INFO ] [ProductController:150] createProductFull method: Response CREATED
+[2024-03-31 20:13:28] [ INFO ] [ProductController:146] createProductFull method: starting...
+[2024-03-31 20:13:28] [ INFO ] [ProductController:148] createProductFull method: productService.createProduct(requestDTO)
+[2024-03-31 20:13:28] [ INFO ] [GenericService:53] createFull method: starting...
+[2024-03-31 20:13:28] [ INFO ] [GenericService:54] createFull method: if productRepository.existsByName
+[2024-03-31 20:13:28] [ INFO ] [GenericService:56] createFull method: Producto nuevo 2 already exists
+[2024-03-31 20:13:28] [ INFO ] [ProductController:153] createProductFull method: Response CONFLICT
+[2024-03-31 20:13:49] [ INFO ] [ProductController:146] createProductFull method: starting...
+[2024-03-31 20:13:49] [ INFO ] [ProductController:148] createProductFull method: productService.createProduct(requestDTO)
+[2024-03-31 20:13:49] [ INFO ] [GenericService:53] createFull method: starting...
+[2024-03-31 20:13:49] [ INFO ] [GenericService:54] createFull method: if productRepository.existsByName
+[2024-03-31 20:13:49] [ INFO ] [GenericService:59] createFull method: mapProductRequestDTOToProduct(requestDTO)
+[2024-03-31 20:13:50] [ INFO ] [GenericService:61] createFull method: productRepository.save(product)
+[2024-03-31 20:13:50] [ INFO ] [GenericService:63] createFull method: return ProductResponseDTO
+[2024-03-31 20:13:50] [ INFO ] [ProductController:150] createProductFull method: Response CREATED
+[2024-03-31 20:14:03] [ INFO ] [ProductController:44] Getting started
+[2024-03-31 20:14:03] [ INFO ] [ProductController:47] Setting sort order
+[2024-03-31 20:14:03] [ INFO ] [ProductController:55] Conditional that sets the productPage variable to random or not
+[2024-03-31 20:14:03] [ INFO ] [ProductController:57] //////////////////////////////////////
+[2024-03-31 20:14:03] [ INFO ] [ProductController:58] 
+[2024-03-31 20:14:03] [ INFO ] [ProductController:59] //////////////////////////////////////
+[2024-03-31 20:14:07] [ INFO ] [ProductController:44] Getting started
+[2024-03-31 20:14:07] [ INFO ] [ProductController:51] Setting default sort order
+[2024-03-31 20:14:07] [ INFO ] [ProductController:55] Conditional that sets the productPage variable to random or not
+[2024-03-31 20:14:07] [ INFO ] [ProductController:57] //////////////////////////////////////
+[2024-03-31 20:14:07] [ INFO ] [ProductController:58] 
+[2024-03-31 20:14:07] [ INFO ] [ProductController:59] //////////////////////////////////////

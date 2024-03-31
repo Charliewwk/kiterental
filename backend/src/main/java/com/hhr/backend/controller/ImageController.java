@@ -75,7 +75,6 @@ public class ImageController {
                 throw new ResourceAlreadyExistsException("Image " + requestDTO.getName() + " already exists.");
             }
             Image image = modelMapper.map(requestDTO, Image.class);
-            image.setCreatedDate(LocalDateTime.now());
             image.setActive(true);
             Image createImage = imageService.create(image);
             ImageResponseDTO responseDTO = modelMapper.map(createImage, ImageResponseDTO.class);
