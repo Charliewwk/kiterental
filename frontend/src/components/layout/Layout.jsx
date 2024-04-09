@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Footer from '../footer/Footer';
 import { Container } from 'react-bootstrap';
 import LeftBar from '../leftBar/LeftBar';
-import "./layout.css"
+import "./layout.css";
 
 const Layout = () => {
   return (

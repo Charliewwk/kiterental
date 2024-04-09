@@ -1,0 +1,15 @@
+  .card-body {
+    text-align: center;
+    height: 200px;
+  }
+  
+  .card-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 1%; 
+  }
+
+  .card-img-top {
+    object-fit: cover;
+    height: 200px;
+  }

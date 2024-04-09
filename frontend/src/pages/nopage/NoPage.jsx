@@ -7,10 +7,8 @@ const NoPage = () => {
     <Container>
       <div style={styles.container}>
         <div style={styles.imageContainer}>
-          <img src={process.env.PUBLIC_URL + '/assets/images/pandereta.jpg'} alt="Pandereta" style={styles.image} />
-          <div style={styles.overlay}>
-            <span style={styles.number}>404</span>
-          </div>
+          <img src={process.env.PUBLIC_URL + '/assets/images/grua.jpg'} alt="Grua" style={styles.image} />
+          <span style={styles.number}>404</span>
         </div>
         <p style={styles.text}>Lo sentimos<br/>No se encuentra la página que estás buscando.</p>
         <Button as={Link} to="/" variant="primary">Volver a la página de inicio</Button>

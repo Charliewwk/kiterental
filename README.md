@@ -1,3 +1,8 @@
-# KiteRental
-## Proyecto Integrador DH
-### Christian Fernández chr.edg.fer@hotmail.com
+# Proyecto integrador
+## Digital House
+### Christian Fernández
+
+npm install
+npm start
+
+mysql db "rental"

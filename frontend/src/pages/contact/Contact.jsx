@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useGlobal } from "../../context/globalContext/GlobalContext";
+import { useNavigate } from "react-router-dom";
 import "./contact.css";
 
 const Contact = () => {
@@ -9,8 +9,8 @@ const Contact = () => {
   });
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
-  const { translations } = useGlobal();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setFormData({
@@ -36,27 +36,11 @@ const Contact = () => {
       formData.fullName.length <= 5 ||
       !emailRegex.test(formData.email)
     ) {
-      setError(translations.contactPage.verifyMessage);
-      console.log(
-        "Error en los datos cargados!: ",
-        translations.contactPage.verifyMessage
-      );
+      setError("Por favor, ingrese un nombre válido y una dirección de correo electrónico válida.");
       setSuccessMessage("");
     } else {
       setIsSubmitting(true);
-      setSuccessMessage(
-        translations.contactPage.successMessage.replace(
-          "${formData.fullName}",
-          formData.fullName
-        )
-      );
-      console.log(
-        "Formulario enviado exitosamente!: ",
-        translations.contactPage.successMessage.replace(
-          "${formData.fullName}",
-          formData.fullName
-        )
-      );
+      setSuccessMessage(`¡Gracias ${formData.fullName}! Su formulario ha sido enviado exitosamente.`);
       setTimeout(() => {
         setIsSubmitting(false);
         setFormData({
@@ -65,6 +49,7 @@ const Contact = () => {
         });
         setSuccessMessage("");
         setError("");
+        navigate('/');
       }, 5000);
     }
   };
@@ -72,12 +57,12 @@ const Contact = () => {
   return (
     <div className="container d-flex justify-content-center">
       <div className="card card-limit">
-        <div className="card-header">{translations.contact}</div>
+        <div className="card-header">Contacto</div>
         <div className="card-body card-body d-flex flex-column align-items-center">
           <form onSubmit={handleSubmit} className="w-100">
             <div className="mb-3">
               <label className="form-label" htmlFor="fullName">
-                {translations.contactPage.fullname}
+                Nombre completo
               </label>
               <input
                 type="text"
@@ -90,12 +75,12 @@ const Contact = () => {
                 aria-describedby="nameHelpBlock"
               />
               <small id="nameHelpBlock" className="form-text text-muted">
-                {translations.contactPage.fullnameHelp}
+                Ingrese su nombre completo.
               </small>
             </div>
             <div className="mb-3">
               <label className="form-label" htmlFor="email">
-                {translations.contactPage.email}
+                Correo electrónico
               </label>
               <input
                 type="text"
@@ -108,13 +93,13 @@ const Contact = () => {
                 aria-describedby="emailHelpBlock"
               />
               <small id="emailHelpBlock" className="form-text text-muted">
-                {translations.contactPage.emailHelp}
+                Ingrese su dirección de correo electrónico.
               </small>
             </div>
             {error && <p className="text-danger">{error}</p>}
             {successMessage && <p className="text-success">{successMessage}</p>}
             <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
-              {isSubmitting ? translations.contactPage.sending : translations.contactPage.sendButton}
+              {isSubmitting ? "Enviando..." : "Enviar"}
             </button>
           </form>
         </div>

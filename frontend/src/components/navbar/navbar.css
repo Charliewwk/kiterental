@@ -1,6 +1,4 @@
-.navbar-brand img {
-  filter: invert(100%);
-}
+
 
 .button-transparent {
     background-color: transparent !important;
@@ -10,3 +8,7 @@
 .button-transparent:hover {
     background-color: transparent !important;
 }
+
+.navbar-brand {
+    font-size: 16px; /* Adjust the font size as needed */
+  }

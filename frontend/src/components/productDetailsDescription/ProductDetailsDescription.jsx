@@ -4,7 +4,7 @@ const ProductDetailsDescription = ({ price, description }) => {
   return (
     <div>
       <div className="fs-5 mb-2">
-        <span>${price}</span>
+        <span>USD {price}</span>
       </div>
       <p>{description}</p>
     </div>

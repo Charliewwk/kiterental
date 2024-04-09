@@ -1,0 +1,18 @@
+.avatar-container {
+    width: 40px; /* Definir el ancho del contenedor del avatar */
+    height: 40px; /* Definir la altura del contenedor del avatar */
+    border-radius: 50%; /* Hacer que el contenedor del avatar sea un círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .user-icon {
+    color: white; /* Establecer el color del icono */
+    font-size: 20px; /* Definir el tamaño del icono */
+  }
+
+
+  #dropdown-avatar.dropdown-toggle::after {
+    display: none;
+  }

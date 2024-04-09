@@ -6,9 +6,7 @@ import {
   useState,
 } from "react";
 
-const languageActions = {
-  TOGGLE_LANGUAGE: "TOGGLE_LANGUAGE",
-};
+
 
 const themeActions = {
   TOGGLE_THEME: "TOGGLE_THEME",
@@ -19,15 +17,7 @@ const favoriteActions = {
   SET_FAVORITES_FROM_LOCAL_STORAGE: "SET_FAVORITES_FROM_LOCAL_STORAGE",
 };
 
-const languageReducer = (state, action) => {
-  switch (action.type) {
-    case languageActions.TOGGLE_LANGUAGE:
-      localStorage.setItem("language", action.payload);
-      return { language: action.payload };
-    default:
-      return state;
-  }
-};
+
 
 const themeReducer = (state, action) => {
   switch (action.type) {
@@ -43,19 +33,28 @@ const themeReducer = (state, action) => {
 const favoriteReducer = (state, action) => {
   switch (action.type) {
     case favoriteActions.TOGGLE_FAVORITE:
-      const user = action.payload;
-      const favoriteUsers = state || [];
-      const existingIndex = favoriteUsers.findIndex((u) => u.id === user.id);
+      const { id, title } = action.payload;
+      const existingIndex = state.findIndex((user) => user.id === id);
+      let updatedFavorites = [];
+
       if (existingIndex !== -1) {
-        favoriteUsers.splice(existingIndex, 1);
+        // Si el producto ya está en favoritos, eliminarlo
+        updatedFavorites = state.filter((user) => user.id !== id);
       } else {
-        favoriteUsers.push(user);
+        // Si el producto no está en favoritos, agregarlo
+        updatedFavorites = [...state, { id, title }];
       }
-      localStorage.setItem("favoriteUsers", JSON.stringify(favoriteUsers));
-      return [...favoriteUsers];
+
+      // Actualizar el estado y el localStorage
+      localStorage.setItem("favoriteUsers", JSON.stringify(updatedFavorites));
+      return updatedFavorites;
+
     case favoriteActions.SET_FAVORITES_FROM_LOCAL_STORAGE:
-      const storedFavorites = JSON.parse(localStorage.getItem("favoriteUsers"));
+      const storedFavorites = JSON.parse(
+        localStorage.getItem("favoriteUsers")
+      );
       return storedFavorites || [];
+
     default:
       return state;
   }
@@ -69,11 +68,7 @@ export const GlobalProvider = ({ children }) => {
     darkMode: storedDarkMode,
   });
   const [favoriteUsers, favoriteDispatch] = useReducer(favoriteReducer, []);
-  const storedLanguage = localStorage.getItem("language") || "en";
-  const [language, languageDispatch] = useReducer(languageReducer, {
-    language: storedLanguage,
-  });
-  const [translations, setTranslations] = useState({});
+  
 
   useEffect(() => {
     favoriteDispatch({
@@ -81,14 +76,9 @@ export const GlobalProvider = ({ children }) => {
     });
   }, []);
 
-  useEffect(() => {
-    const loadLanguageFile = async () => {
-      const languageFile = await import(`../../locales/${language.language}.json`);
-      setTranslations(languageFile);
-    };
+ 
 
-    loadLanguageFile();
-  }, [language.language]);
+
 
   return (
     <GlobalContext.Provider
@@ -97,9 +87,7 @@ export const GlobalProvider = ({ children }) => {
         themeDispatch,
         favoriteUsers,
         favoriteDispatch,
-        language,
-        languageDispatch,
-        translations,
+
       }}
     >
       {children}

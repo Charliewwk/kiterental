@@ -1,10 +1,10 @@
 .navbar-brand {
   display: flex;
   align-items: center;
+  
 }
 
 .footer-brand img {
-  filter: invert(100%);
   margin-right: 5px;
 }
 
@@ -29,3 +29,17 @@
   align-items: center;
 
 }
+
+.footer-icons i {
+  font-size: 24px; 
+  margin: 16px;
+  color: black;
+}
+
+@media (max-width: 767px) {
+  .bg-body-tertiary {
+    height: 100px; 
+    margin-top: 0px;
+  }
+  }
+

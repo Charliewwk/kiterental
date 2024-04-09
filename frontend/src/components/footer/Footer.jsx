@@ -1,38 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Navbar } from 'react-bootstrap';
-import { isMobile } from 'react-device-detect';
 
-import './footer.css'
+import './footer.css';
 
 function Footer() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '20vh' }}>
 
-      <Navbar className="bg-body-tertiary" fixed="bottom">
+      <Navbar className="bg-body-tertiary" fixed="bottom" style={{ display: 'flex', flexDirection: 'column' }}>
         <Container>
           <Navbar.Brand as={Link} to="/" className="footer-brand">
             <img
               alt=""
-              src={process.env.PUBLIC_URL + '/assets/logos/logo_hhr.png'}
-              width="28"
-              height="21"
+              src='/assets/logos/logo.png'
+              height="50"
               className="d-inline-block align-top"
             />{' '}
-            <span>hiHat Rental. Todos los derechos reservados 2024</span>
+            <span>Kite Rental. Todos los derechos reservados 2024</span>
           </Navbar.Brand>
-          {!isMobile && (
-            <Navbar.Text className="footer-dashboard d-none d-lg-block">
-              <img
-                alt=""
-                src={process.env.PUBLIC_URL + '/assets/svg/user/admin.svg'}
-                width="16"
-                height="16"
-                className="d-inline-block"
-              />
-              <span>Dashboard</span>
-            </Navbar.Text>
-          )}
+          <Link to="/politicas-de-reserva">Políticas de reserva</Link>
+          <div className="footer-icons">
+            <a href="enlace-a-facebook"><i className="fab fa-facebook"></i></a>
+            <a href="enlace-a-instagram"><i className="fab fa-instagram"></i></a>
+            <a href="https://wa.me/59893781768"><i className="fab fa-whatsapp"></i></a>
+          </div>
         </Container>
       </Navbar>
 

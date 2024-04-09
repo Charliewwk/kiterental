@@ -1,0 +1,5 @@
+.table-striped td,
+.table-striped th {
+  border-right: 1px solid #ccc; /* Establece una línea divisoria derecha */
+}
+
